@@ -82,3 +82,5 @@ export interface CharacterStatsSpeciality {
 }
 
 export type StatsLimit = Record<CharacterAttribute, number>;
+
+
