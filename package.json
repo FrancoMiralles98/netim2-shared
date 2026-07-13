@@ -1,6 +1,6 @@
 {
   "name": "netim2-shared",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Types and shared contracts for Netim2 frontend and backend",
   "main": "index.js",
   "types": "dist/index.d.ts",
@@ -8,8 +8,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc",
-    "prepare": "npm run build"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",

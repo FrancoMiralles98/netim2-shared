@@ -1,5 +1,4 @@
 import { ItemDTO } from "../item/item-dto";
-
 /**
  * @description
  * @property {id} - identificacion unica del item, a diferencia del idItem (que identifica el tipo del item)
@@ -8,15 +7,14 @@ import { ItemDTO } from "../item/item-dto";
  * @property {@link ItemDTO} - posicion en el que esta ubicado el item en el inventario
  */
 export type InventoryItem = ItemDTO & {
-    id: string
-    position: Position
-}
-
+    id: string;
+    position: Position;
+};
 /**
  * @description
  * posicion del eje y con del eje x que se encuentra ubicado el item en el inventario
  */
 export interface Position {
-  row: number;
-  col: number;
+    row: number;
+    col: number;
 }

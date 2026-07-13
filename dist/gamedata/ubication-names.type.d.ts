@@ -1,0 +1,1 @@
+export type UbicationNames = 'city1' | 'city2' | 'valle' | 'desierto' | 'montaña' | 'templo' | 'mazmorra_monos' | 'cueva_araña' | 'torre_demoniaca';
