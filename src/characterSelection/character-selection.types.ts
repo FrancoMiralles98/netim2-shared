@@ -1,5 +1,6 @@
 import { BaseCharacterProps } from "../character/base-character-props.type";
 import { CharacterAttribute, CharacterRace, CharacterSpeciality } from "../character/character-stats.type";
+import { ReinosBuffType } from "../gamedata/reinos-buff.type";
 
 /**
  * Define la base de datos que se utiliza para construir el resumen de un personaje.
@@ -56,6 +57,7 @@ export interface CharacterSelectionDataType {
     characters: CharacterSummary[]
     races: RaceInfo[];
     attributeLimit: number;
+    reinoBuff: ReinosBuffType
 }
 
 
