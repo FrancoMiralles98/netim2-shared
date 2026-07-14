@@ -17,3 +17,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./bonus-in-item.type"), exports);
 __exportStar(require("./item-bonus-quaility.type"), exports);
 __exportStar(require("./media-habilidad-roll-config.type"), exports);
+__exportStar(require("./bonusListHelper/bonus-list-full-name.enum"), exports);
+__exportStar(require("./bonusListHelper/bonus.type"), exports);
+__exportStar(require("./bonusListHelper/ref-bonus-name.type"), exports);

@@ -17,3 +17,4 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./characterSelection/characterSelection.index"), exports);
 __exportStar(require("./gamedata/gamedata.index"), exports);
 __exportStar(require("./character/character-index"), exports);
+__exportStar(require("./bonus/bonus-index"), exports);
