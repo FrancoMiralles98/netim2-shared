@@ -16,3 +16,4 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./character-selection.types"), exports);
 __exportStar(require("./api/character-creation-value.type"), exports);
+//Ya index.ts

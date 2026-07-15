@@ -1,0 +1,86 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.bonusFullNameByRef = void 0;
+const bonus_list_full_name_enum_1 = require("./bonus-list-full-name.enum");
+/**
+ *
+ * @param bonus - refrencia del bonus
+ * @returns retorna el nombre completo en base a la referencia del bonus
+ */
+const bonusFullNameByRef = (bonus) => {
+    const REFERENCE = {
+        ad: bonus_list_full_name_enum_1.allFullNameBonusList.VALOR_DE_ATAQUE,
+        animales: bonus_list_full_name_enum_1.allFullNameBonusList.FUERZA_CONTRA_ANIMALES,
+        ap: bonus_list_full_name_enum_1.allFullNameBonusList.VALOR_DE_ATAQUE_MAGICO,
+        bloquear_ataques: bonus_list_full_name_enum_1.allFullNameBonusList.PROB_DE_BLOQUEAR_ATAQUES_BASICOS,
+        bonus_estado: bonus_list_full_name_enum_1.allFullNameBonusList.BONUS_ESTADO,
+        bonus_exp: bonus_list_full_name_enum_1.allFullNameBonusList.BONUS_EXP,
+        bonus_fuego: bonus_list_full_name_enum_1.allFullNameBonusList.BONUS_INCENDIO,
+        bonus_sangrado: bonus_list_full_name_enum_1.allFullNameBonusList.BONUS_SANGRAD,
+        bonus_veneno: bonus_list_full_name_enum_1.allFullNameBonusList.BONUS_VENENO,
+        bonus_yang: bonus_list_full_name_enum_1.allFullNameBonusList.BONUS_YANG,
+        chaman: bonus_list_full_name_enum_1.allFullNameBonusList.FUERZA_CONTRA_CHAMANES,
+        chances_exp: bonus_list_full_name_enum_1.allFullNameBonusList.PROB_DE_OBTENER_BONUS_DE_EXP,
+        chances_objetos: bonus_list_full_name_enum_1.allFullNameBonusList.PROB_DE_CAER_MAS_OBJETOS,
+        chances_raros: bonus_list_full_name_enum_1.allFullNameBonusList.AUMENTO_DE_OBJETOS_RAROS,
+        chances_yang: bonus_list_full_name_enum_1.allFullNameBonusList.FRECUENCIA_DE_YANG,
+        corta_curacion: bonus_list_full_name_enum_1.allFullNameBonusList.CORTA_CURACION,
+        critico: bonus_list_full_name_enum_1.allFullNameBonusList.PROB_DE_GOLPES_CRITICOS,
+        damage_taken: bonus_list_full_name_enum_1.allFullNameBonusList.DAMAGE_TAKEN,
+        daño_critico: bonus_list_full_name_enum_1.allFullNameBonusList.DAÑO_CRITICO,
+        def: bonus_list_full_name_enum_1.allFullNameBonusList.DEFENSA,
+        def_campana: bonus_list_full_name_enum_1.allFullNameBonusList.DEFENSA_CAMPANA,
+        def_chaman: bonus_list_full_name_enum_1.allFullNameBonusList.DEFENSA_CHAMAN,
+        def_daga: bonus_list_full_name_enum_1.allFullNameBonusList.DEFENSA_DAGA,
+        def_desmayo: bonus_list_full_name_enum_1.allFullNameBonusList.DEFENSA_CONTRA_DESMAYO,
+        def_dos_manos: bonus_list_full_name_enum_1.allFullNameBonusList.DEFENSA_DOS_MANOS,
+        def_espada: bonus_list_full_name_enum_1.allFullNameBonusList.DEFENSA_ESPADA,
+        def_fan: bonus_list_full_name_enum_1.allFullNameBonusList.DEFENSA_FAN,
+        def_flecha: bonus_list_full_name_enum_1.allFullNameBonusList.RESISTENCIA_A_FLECHAS,
+        def_guerrero: bonus_list_full_name_enum_1.allFullNameBonusList.DEFENSA_GUERRERO,
+        def_hab: bonus_list_full_name_enum_1.allFullNameBonusList.RESISTENCIA_AL_DAÑO_DE_HABILIDAD,
+        def_incendio: bonus_list_full_name_enum_1.allFullNameBonusList.RESISTENCIA_AL_FUEGO,
+        def_magia: bonus_list_full_name_enum_1.allFullNameBonusList.RESISTENCIA_MAGIA,
+        def_media: bonus_list_full_name_enum_1.allFullNameBonusList.RESISTENCIA_AL_DAÑO_DE_MEDIA,
+        def_ninja: bonus_list_full_name_enum_1.allFullNameBonusList.DEFENSA_NINJA,
+        def_retardo: bonus_list_full_name_enum_1.allFullNameBonusList.DEFENSA_CONTRA_RETARDO,
+        def_sangrado: bonus_list_full_name_enum_1.allFullNameBonusList.RESISTENCIA_AL_SANGRADO,
+        def_sura: bonus_list_full_name_enum_1.allFullNameBonusList.DEFENSA_SURA,
+        def_veneno: bonus_list_full_name_enum_1.allFullNameBonusList.RESISTENCIA_AL_VENENO,
+        demonios: bonus_list_full_name_enum_1.allFullNameBonusList.FUERZA_CONTRA_DEMONIOS,
+        desmayo: bonus_list_full_name_enum_1.allFullNameBonusList.DEFENSA_CONTRA_DESMAYO,
+        DEX: bonus_list_full_name_enum_1.allFullNameBonusList.DEX,
+        doble_golpe: bonus_list_full_name_enum_1.allFullNameBonusList.DOBLE_GOLPE,
+        duracion_estado: bonus_list_full_name_enum_1.allFullNameBonusList.DURACION_ESTADO,
+        esquivar_ataques: bonus_list_full_name_enum_1.allFullNameBonusList.ESQUIVAR_ATAQUES,
+        guerrero: bonus_list_full_name_enum_1.allFullNameBonusList.FUERZA_CONTRA_GUERREROS,
+        habilidad: bonus_list_full_name_enum_1.allFullNameBonusList.DAÑO_DE_HABILIDAD,
+        hp: bonus_list_full_name_enum_1.allFullNameBonusList.MAX_HP,
+        incendio: bonus_list_full_name_enum_1.allFullNameBonusList.OPCION_DE_INCENDIO,
+        INT: bonus_list_full_name_enum_1.allFullNameBonusList.INT,
+        media: bonus_list_full_name_enum_1.allFullNameBonusList.DAÑO_DE_MEDIA,
+        medio_humanos: bonus_list_full_name_enum_1.allFullNameBonusList.FUERZA_CONTRA_MEDIO_HUMANOS,
+        misticos: bonus_list_full_name_enum_1.allFullNameBonusList.FUERZA_CONTRA_MISTICOS,
+        monstruos: bonus_list_full_name_enum_1.allFullNameBonusList.FUERZA_CONTRA_MONSTRUOS,
+        ninja: bonus_list_full_name_enum_1.allFullNameBonusList.FUERZA_CONTRA_NINJAS,
+        orcos: bonus_list_full_name_enum_1.allFullNameBonusList.FUERZA_CONTRA_ORCOS,
+        penetracion: bonus_list_full_name_enum_1.allFullNameBonusList.PROB_DE_GOLPES_DE_PENETRACION,
+        penetracion_habilidad: bonus_list_full_name_enum_1.allFullNameBonusList.PENETRACION_HABILIDAD,
+        reflectar: bonus_list_full_name_enum_1.allFullNameBonusList.PROB_ES_DE_REFLECTAR_GOLPES_BASICOS,
+        regen_hp: bonus_list_full_name_enum_1.allFullNameBonusList.REGENERACION_DE_HP,
+        retardo: bonus_list_full_name_enum_1.allFullNameBonusList.PROB_DE_RETARDO,
+        robo_vida: bonus_list_full_name_enum_1.allFullNameBonusList.ROBO_DE_VIDA,
+        sangrado: bonus_list_full_name_enum_1.allFullNameBonusList.OPCION_DE_SANGRADO,
+        STR: bonus_list_full_name_enum_1.allFullNameBonusList.STR,
+        sura: bonus_list_full_name_enum_1.allFullNameBonusList.FUERZA_CONTRA_SURAS,
+        time_reduction: bonus_list_full_name_enum_1.allFullNameBonusList.TIME_REDUCTION,
+        va: bonus_list_full_name_enum_1.allFullNameBonusList.VELOCIDAD_DE_ATAQUE,
+        vampirismo_hechizo: bonus_list_full_name_enum_1.allFullNameBonusList.VAMPIRISMO_DE_HECHIZO,
+        veneno: bonus_list_full_name_enum_1.allFullNameBonusList.OPCION_DE_ENVENENAMIENTO,
+        vh: bonus_list_full_name_enum_1.allFullNameBonusList.VELOCIDAD_DE_HECHIZO,
+        VIT: bonus_list_full_name_enum_1.allFullNameBonusList.VIT,
+        vm: bonus_list_full_name_enum_1.allFullNameBonusList.VELOCIDAD_DE_MOVIMIENTO
+    };
+    return REFERENCE[bonus];
+};
+exports.bonusFullNameByRef = bonusFullNameByRef;

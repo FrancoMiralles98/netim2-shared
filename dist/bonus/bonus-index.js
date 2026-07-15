@@ -20,3 +20,5 @@ __exportStar(require("./media-habilidad-roll-config.type"), exports);
 __exportStar(require("./bonusListHelper/bonus-list-full-name.enum"), exports);
 __exportStar(require("./bonusListHelper/bonus.type"), exports);
 __exportStar(require("./bonusListHelper/ref-bonus-name.type"), exports);
+__exportStar(require("./bonusListHelper/bonus-full-name-by-ref.func"), exports);
+//Ya en index.ts
