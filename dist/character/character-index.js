@@ -27,4 +27,5 @@ __exportStar(require("./mission-option.type"), exports);
 __exportStar(require("./pvp-data.type"), exports);
 __exportStar(require("./stars-discovery.type"), exports);
 __exportStar(require("./character-persistence.type"), exports);
+__exportStar(require("./character-genero.type"), exports);
 //Ya en index.ts

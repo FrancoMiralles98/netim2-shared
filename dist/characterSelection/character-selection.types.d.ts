@@ -36,9 +36,12 @@ export type CharacterSummary = Omit<CharacterSummaryBase, 'stats'> & {
  * @property characters Lista resumida de personajes pertenecientes a la cuenta autenticada.
  * @property races Información de las razas disponibles para la creación de personaje.
  * @property attributeLimit Límite máximo total que puede alcanzar un atributo, incluyendo puntos base y bonus externos.
+ * @property maxCharacters -  Cantidad maxima de personajes que te podes crear en una cuenta
+ * @property reinoBuff - los buffos que recibiras por pertenecer a un reino
  */
 export interface CharacterSelectionDataType {
     characters: CharacterSummary[];
+    maxCharacters: number;
     races: RaceInfo[];
     attributeLimit: number;
     reinoBuff: ReinosBuffType;

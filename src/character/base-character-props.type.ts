@@ -3,6 +3,7 @@ import { ReinosNames } from "../gamedata/reinos-names.type";
 import { EquipType, TypeWeapon } from "../item/entities-props/equip.type";
 import { MonturaType } from "../item/entities-props/montura.type";
 import { AppliedBuffos } from "./buffos-in-character.type";
+import { CharacterGenero } from "./character-genero.type";
 import { CharacterRole } from "./character-role.enum";
 import { CharacterRace, CharacterSpeciality, CharacterStats } from "./character-stats.type";
 import { DiscoveryWorld } from "./discovery-world.type";
@@ -147,7 +148,7 @@ export interface BaseCharacterProps {
     timer_boss: number;
     timer_lv: number;
     reino: ReinosNames
-    genero: 'femenino' | 'masculino'
+    genero: CharacterGenero
     puntos_atributos: number;
     puntos_habilidad: number;
     buffos: AppliedBuffos[];

@@ -5,7 +5,8 @@ const bonus_list_full_name_enum_1 = require("./bonus-list-full-name.enum");
 /**
  *
  * @param bonus - refrencia del bonus
- * @returns retorna el nombre completo en base a la referencia del bonus
+ * @returns retorna el nombre completo en base a la referencia del bonus o si
+ * no encuentra retorna el bonusRef
  */
 const bonusFullNameByRef = (bonus) => {
     const REFERENCE = {
@@ -81,6 +82,6 @@ const bonusFullNameByRef = (bonus) => {
         VIT: bonus_list_full_name_enum_1.allFullNameBonusList.VIT,
         vm: bonus_list_full_name_enum_1.allFullNameBonusList.VELOCIDAD_DE_MOVIMIENTO
     };
-    return REFERENCE[bonus];
+    return REFERENCE[bonus] ?? bonus;
 };
 exports.bonusFullNameByRef = bonusFullNameByRef;

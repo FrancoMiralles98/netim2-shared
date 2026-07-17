@@ -4,7 +4,8 @@ import { BonusRefKeys } from "./ref-bonus-name.type";
 /**
  * 
  * @param bonus - refrencia del bonus
- * @returns retorna el nombre completo en base a la referencia del bonus 
+ * @returns retorna el nombre completo en base a la referencia del bonus o si
+ * no encuentra retorna el bonusRef
  */
 export const bonusFullNameByRef = (bonus: BonusRefKeys) => {
     const REFERENCE = {
@@ -81,5 +82,5 @@ export const bonusFullNameByRef = (bonus: BonusRefKeys) => {
         vm: allFullNameBonusList.VELOCIDAD_DE_MOVIMIENTO
     } satisfies Record<BonusRefKeys, allFullNameBonusList>
 
-    return REFERENCE[bonus]
+    return REFERENCE[bonus] ?? bonus
 }
