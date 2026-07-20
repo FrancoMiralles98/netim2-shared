@@ -12,4 +12,5 @@ export * from './pvp-data.type'
 export * from './stars-discovery.type'
 export * from './character-persistence.type'
 export * from './character-genero.type'
+export * from './character-session.type'
 //Ya en index.ts
