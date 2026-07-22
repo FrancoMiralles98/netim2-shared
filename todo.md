@@ -1,1 +1,2 @@
 # crear un metodo para obtener el nombre completo del bonus mediante su bonusRefKey
+# falta agregar el la lista de tier los bonus de (mana,regenMana,electrico,resistencia al electrico,manacost,porcentagemanacost)

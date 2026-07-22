@@ -80,7 +80,13 @@ const bonusFullNameByRef = (bonus) => {
         veneno: bonus_list_full_name_enum_1.allFullNameBonusList.OPCION_DE_ENVENENAMIENTO,
         vh: bonus_list_full_name_enum_1.allFullNameBonusList.VELOCIDAD_DE_HECHIZO,
         VIT: bonus_list_full_name_enum_1.allFullNameBonusList.VIT,
-        vm: bonus_list_full_name_enum_1.allFullNameBonusList.VELOCIDAD_DE_MOVIMIENTO
+        vm: bonus_list_full_name_enum_1.allFullNameBonusList.VELOCIDAD_DE_MOVIMIENTO,
+        electrico: bonus_list_full_name_enum_1.allFullNameBonusList.OPCION_DE_ELECTROCUTAR,
+        mana: bonus_list_full_name_enum_1.allFullNameBonusList.MANA,
+        mana_cost: bonus_list_full_name_enum_1.allFullNameBonusList.MANA_COST,
+        regen_mana: bonus_list_full_name_enum_1.allFullNameBonusList.MANA_REGEN,
+        def_electrico: bonus_list_full_name_enum_1.allFullNameBonusList.DEF_ELECTRICO,
+        porcentage_mana_cost: bonus_list_full_name_enum_1.allFullNameBonusList.PORCENTAGE_MANA_COST
     };
     return REFERENCE[bonus] ?? bonus;
 };

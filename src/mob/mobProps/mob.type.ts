@@ -9,7 +9,7 @@ import { TypeWeapon } from "../../item/entities-props/equip.type";
 import { CharacterSpeciality } from "../../character/character-stats.type";
 import { AllTargetType } from "../../gamedata/all-races.type";
 import { UbicationNames } from "../../gamedata/ubication-names.type";
-import { SkillType } from "../../skills/const/skill.type";
+import { SkillType } from "../../skills/skill-type";
 
 /**
  * Representa la estructura completa de un mob

@@ -41,7 +41,7 @@ export const bonusFullNameByRef = (bonus: BonusRefKeys) => {
         def_hab: allFullNameBonusList.RESISTENCIA_AL_DAÑO_DE_HABILIDAD,
         def_incendio: allFullNameBonusList.RESISTENCIA_AL_FUEGO,
         def_magia: allFullNameBonusList.RESISTENCIA_MAGIA,
-        def_media:allFullNameBonusList.RESISTENCIA_AL_DAÑO_DE_MEDIA,
+        def_media: allFullNameBonusList.RESISTENCIA_AL_DAÑO_DE_MEDIA,
         def_ninja: allFullNameBonusList.DEFENSA_NINJA,
         def_retardo: allFullNameBonusList.DEFENSA_CONTRA_RETARDO,
         def_sangrado: allFullNameBonusList.RESISTENCIA_AL_SANGRADO,
@@ -79,7 +79,13 @@ export const bonusFullNameByRef = (bonus: BonusRefKeys) => {
         veneno: allFullNameBonusList.OPCION_DE_ENVENENAMIENTO,
         vh: allFullNameBonusList.VELOCIDAD_DE_HECHIZO,
         VIT: allFullNameBonusList.VIT,
-        vm: allFullNameBonusList.VELOCIDAD_DE_MOVIMIENTO
+        vm: allFullNameBonusList.VELOCIDAD_DE_MOVIMIENTO,
+        electrico: allFullNameBonusList.OPCION_DE_ELECTROCUTAR,
+        mana: allFullNameBonusList.MANA,
+        mana_cost: allFullNameBonusList.MANA_COST,
+        regen_mana: allFullNameBonusList.MANA_REGEN,
+        def_electrico: allFullNameBonusList.DEF_ELECTRICO,
+        porcentage_mana_cost: allFullNameBonusList.PORCENTAGE_MANA_COST
     } satisfies Record<BonusRefKeys, allFullNameBonusList>
 
     return REFERENCE[bonus] ?? bonus

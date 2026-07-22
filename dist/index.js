@@ -18,3 +18,5 @@ __exportStar(require("./characterSelection/characterSelection.index"), exports);
 __exportStar(require("./gamedata/gamedata.index"), exports);
 __exportStar(require("./character/character-index"), exports);
 __exportStar(require("./bonus/bonus-index"), exports);
+__exportStar(require("./fight/fight.index"), exports);
+__exportStar(require("./skills/skill-index"), exports);
