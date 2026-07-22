@@ -1,5 +1,6 @@
 import { BonusRefKeys } from "../../../bonus/bonus-index";
 import { EscaladoAtributos } from "../escalado-atributos-types";
+import { SkillScalingLv } from "../escalado-lv.types";
 
 export interface SkillAuraScaling {
     type: 'aura';
@@ -16,7 +17,7 @@ export interface SkillAuraScaling {
 }
 
 export interface EscaladoStat {
-    escaladoLv: number;
+    escaladoLv: SkillScalingLv;
     base: number;
     scaleWithAttribute: boolean;
 }
