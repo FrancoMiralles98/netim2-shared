@@ -5,6 +5,14 @@ export interface SkillAuraScaling {
     type: 'aura';
     escaladoAtributos: EscaladoAtributos;
     escaladoBuffos: Partial<Record<BonusRefKeys, EscaladoStat>>;
+    mana: {
+        base: number;
+        perLv: number;
+    },
+    duration?: {
+        base: number;
+        perLv: number;
+    }
 }
 
 export interface EscaladoStat {

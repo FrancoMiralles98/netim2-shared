@@ -8,8 +8,12 @@ import { StatusEffectsKeys } from "../../damage/status-effects.type";
 import { EscaladoAtributos } from "../escalado-atributos-types";
 import { SkillScalingLv } from "../escalado-lv.types";
 export interface SkillDamageScaling {
-    type: 'damage';
+    type: 'damage' | 'heal';
     cd: number;
+    mana: {
+        base: number;
+        perLv: number;
+    };
     components: SkillDamageComponentScaling[];
     statusEffectScaling?: Partial<Record<StatusEffectsKeys, EffectsScaling>>;
     mechanicsEffectScaling?: Partial<Record<MechanicsEffectsKeys, EffectsScaling>>;

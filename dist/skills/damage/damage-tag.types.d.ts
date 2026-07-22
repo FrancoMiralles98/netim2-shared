@@ -49,5 +49,8 @@
  *
  * @property {'ranged'} ranged
  * Indica que el daño o habilidad es de largo alcance.
+ *
+ *  * @property {'ranged'} heal
+ * Indica que la skill es una curacion
  */
-export type DamageTag = 'skill' | 'ad' | 'ap' | 'incendio' | 'veneno' | 'sangrado' | 'electrico' | 'weapon' | 'dot' | 'cc' | 'true' | 'melee' | 'ranged';
+export type DamageTag = 'skill' | 'ad' | 'ap' | 'incendio' | 'veneno' | 'sangrado' | 'electrico' | 'weapon' | 'dot' | 'cc' | 'true' | 'melee' | 'ranged' | 'heal';
