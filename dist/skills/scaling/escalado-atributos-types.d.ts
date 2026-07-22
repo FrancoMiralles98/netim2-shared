@@ -16,6 +16,4 @@ import { CharacterAttribute } from "../../character/character-stats.type";
  * → se toma un 10% de INT (10)
  *
  */
-export interface EscaladoAtributos {
-    escaladoAtributos: Partial<Record<CharacterAttribute, number>>;
-}
+export type EscaladoAtributos = Partial<Record<CharacterAttribute, number>>;
