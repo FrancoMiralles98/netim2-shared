@@ -1,4 +1,5 @@
 import { SkillCooldownConfig } from "../../skill-base.type";
+import { SkillScalingLv } from "../escalado-lv.types";
 export interface SkillBuffScaling {
     type: 'buff';
     cd: SkillCooldownConfig;
@@ -8,6 +9,6 @@ export interface SkillBuffScaling {
     };
     multiplier: {
         base: number;
-        perLv: number;
+        escaladoLv: SkillScalingLv;
     };
 }
