@@ -5,6 +5,7 @@ import { MechanicsEffectsKeys } from "../../damage/mechanics-effect.type";
 import { ChanceDamageModifier, ConditionalDamageModifier, WeightedDamageModifier } from "../../damage/skill-damage-modifiers.type";
 import { SkillDamageFlags } from "../../damage/skill-damage-tags.type";
 import { StatusEffectsKeys } from "../../damage/status-effects.type";
+import { LetterMasteryLv } from "../../letter-mastery-lv.type";
 import { SkillCooldownConfig } from "../../skill-base.type";
 import { EscaladoAtributos } from "../escalado-atributos-types";
 import { SkillScalingLv } from "../escalado-lv.types";
@@ -36,8 +37,8 @@ export interface SkillDamageComponentScaling {
     escaladoLv: SkillScalingLv;
 
     escaladoAtributos?: EscaladoAtributos
-    
-    statsScaling?:SkillDamageStatScaling[]
+
+    statsScaling?: SkillDamageStatScaling[]
 
     flags?: SkillDamageFlags;
 }
@@ -79,6 +80,7 @@ export interface WeightedHitCountScaling {
 }
 
 export interface OptionsScaling {
+    unlockLv?: LetterMasteryLv,
     chancesConfig: {
         base: number;
         per_lv: number
@@ -116,6 +118,7 @@ export interface WeightedDamageModifierScaling {
 }
 
 export interface OptionsConfig {
+    unlockLv?: LetterMasteryLv,
     chanceConfig: {
         baseChance: number;
         perLv: number;
