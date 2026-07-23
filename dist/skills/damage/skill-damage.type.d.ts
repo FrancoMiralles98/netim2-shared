@@ -44,6 +44,8 @@ export interface SkillDamage extends SkillBase {
     components: SkillDamageComponents[];
     hitModifiers?: SkillHitModifier[];
     damageModifiers?: SkillDamageModifier[];
+    statusEffects?: Partial<Record<StatusEffectsKeys, number>>;
+    mechanicsEffects?: Partial<Record<MechanicsEffectsKeys, number>>;
 }
 /**
  * Representa un componente individual de daño dentro de una skill.
@@ -95,8 +97,6 @@ export interface SkillDamageComponents {
     tags: DamageTag[];
     flags?: SkillDamageFlags;
     statsScaling?: StatsScaling[];
-    statusEffects?: Partial<Record<StatusEffectsKeys, number>>;
-    mechanicsEffects?: Partial<Record<MechanicsEffectsKeys, number>>;
 }
 /**
  * Define un escalado adicional de daño basado en una stat o bonus del luchador.

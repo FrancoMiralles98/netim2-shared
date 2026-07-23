@@ -45,6 +45,8 @@ export interface SkillDamage extends SkillBase {
     components: SkillDamageComponents[];
     hitModifiers?: SkillHitModifier[];
     damageModifiers?: SkillDamageModifier[];
+    statusEffects?: Partial<Record<StatusEffectsKeys, number>>
+    mechanicsEffects?: Partial<Record<MechanicsEffectsKeys, number>>
 }
 
 /**
@@ -94,8 +96,6 @@ export interface SkillDamageComponents {
     tags: DamageTag[];
     flags?: SkillDamageFlags
     statsScaling?: StatsScaling[]
-    statusEffects?: Partial<Record<StatusEffectsKeys, number>>
-    mechanicsEffects?: Partial<Record<MechanicsEffectsKeys, number>>
 }
 
 /**
