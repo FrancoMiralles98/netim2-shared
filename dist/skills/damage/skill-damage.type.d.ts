@@ -39,7 +39,7 @@ import { TypeWeapon } from "../../item/entities-props/equip.type";
  * Modificadores opcionales que alteran el daño de cada golpe o componente.
  */
 export interface SkillDamage extends SkillBase {
-    type: 'damage';
+    type: 'damage' | 'heal';
     weaponRestricted: TypeWeapon[];
     components: SkillDamageComponents[];
     hitModifiers?: SkillHitModifier[];

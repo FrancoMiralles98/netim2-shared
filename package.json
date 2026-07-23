@@ -1,6 +1,6 @@
 {
   "name": "netim2-shared",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "description": "Types and shared contracts for Netim2 frontend and backend",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
