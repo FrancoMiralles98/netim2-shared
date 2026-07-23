@@ -1,6 +1,7 @@
 export * from './unique-id-skill.enum'
 export * from './skill-lv-rank.types'
 export * from './skill-base.type'
+export * from './skill-type'
 export * from './letter-mastery-lv.type'
 export * from './aura/aura-tags.types'
 export * from './aura/skill-aura.type'

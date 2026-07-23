@@ -17,6 +17,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./unique-id-skill.enum"), exports);
 __exportStar(require("./skill-lv-rank.types"), exports);
 __exportStar(require("./skill-base.type"), exports);
+__exportStar(require("./skill-type"), exports);
 __exportStar(require("./letter-mastery-lv.type"), exports);
 __exportStar(require("./aura/aura-tags.types"), exports);
 __exportStar(require("./aura/skill-aura.type"), exports);
