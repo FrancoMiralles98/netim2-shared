@@ -20,6 +20,7 @@ __exportStar(require("./skill-base.type"), exports);
 __exportStar(require("./letter-mastery-lv.type"), exports);
 __exportStar(require("./aura/aura-tags.types"), exports);
 __exportStar(require("./aura/skill-aura.type"), exports);
+__exportStar(require("./buff/skill-buff.types"), exports);
 __exportStar(require("./damage/damage-config.type"), exports);
 __exportStar(require("./damage/damage-tag.types"), exports);
 __exportStar(require("./damage/mechanics-effect.type"), exports);
@@ -31,4 +32,5 @@ __exportStar(require("./scaling/escalado-atributos-types"), exports);
 __exportStar(require("./scaling/escalado-lv.types"), exports);
 __exportStar(require("./scaling/aura/skill-aura-scaling.type"), exports);
 __exportStar(require("./scaling/damage/skill-damage-scaling.type"), exports);
+__exportStar(require("./scaling/buff/skill-buff-scaling.type"), exports);
 //Ya en index.ts

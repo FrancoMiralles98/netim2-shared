@@ -6,6 +6,7 @@ import { MechanicsEffectsKeys } from "./mechanics-effect.type";
 import { SkillDamageFlags } from "./skill-damage-tags.type";
 import { StatusEffectsKeys } from "./status-effects.type";
 import { SkillBase } from "../skill-base.type";
+import { TypeWeapon } from "../../item/entities-props/equip.type";
 
 /**
  * Representa una habilidad de daño.
@@ -23,6 +24,10 @@ import { SkillBase } from "../skill-base.type";
  *
  * @property {'damage'} type
  * Tipo discriminante de la skill.
+ * 
+ * @property {TypeWeapon[]} weaponRestricted
+ * Las armas que esta habilitadas para que pueda usar la habilidad, si no se añade
+ * se puede usar la habilidad sin tener un arma equipada
  *
  * @property {SkillDamageComponents[]} components
  * Lista de componentes de daño que componen la habilidad.
@@ -36,6 +41,7 @@ import { SkillBase } from "../skill-base.type";
  */
 export interface SkillDamage extends SkillBase {
     type: 'damage';
+    weaponRestricted: TypeWeapon[]
     components: SkillDamageComponents[];
     hitModifiers?: SkillHitModifier[];
     damageModifiers?: SkillDamageModifier[];

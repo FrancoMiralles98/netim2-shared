@@ -1,4 +1,5 @@
 import { BonusRefKeys } from "../../../bonus/bonus-index";
+import { SkillCooldownConfig } from "../../skill-base.type";
 import { EscaladoAtributos } from "../escalado-atributos-types";
 import { SkillScalingLv } from "../escalado-lv.types";
 
@@ -10,6 +11,7 @@ export interface SkillAuraScaling {
         base: number;
         perLv: number;
     },
+    cd: SkillCooldownConfig,
     duration?: {
         base: number;
         perLv: number;

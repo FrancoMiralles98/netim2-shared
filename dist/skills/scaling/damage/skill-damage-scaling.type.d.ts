@@ -5,11 +5,12 @@ import { MechanicsEffectsKeys } from "../../damage/mechanics-effect.type";
 import { ChanceDamageModifier, ConditionalDamageModifier, WeightedDamageModifier } from "../../damage/skill-damage-modifiers.type";
 import { SkillDamageFlags } from "../../damage/skill-damage-tags.type";
 import { StatusEffectsKeys } from "../../damage/status-effects.type";
+import { SkillCooldownConfig } from "../../skill-base.type";
 import { EscaladoAtributos } from "../escalado-atributos-types";
 import { SkillScalingLv } from "../escalado-lv.types";
 export interface SkillDamageScaling {
     type: 'damage' | 'heal';
-    cd: number;
+    cd: SkillCooldownConfig;
     mana: {
         base: number;
         perLv: number;
@@ -21,7 +22,6 @@ export interface SkillDamageScaling {
     damageModifiersScaling?: DamageModifierSclaing;
 }
 export interface SkillDamageComponentScaling {
-    id: string;
     damageType: DamageType;
     tags: DamageTag[];
     escaladoMain: {
