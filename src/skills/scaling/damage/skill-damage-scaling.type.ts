@@ -2,7 +2,7 @@ import { BonusRefKeys } from "../../../bonus/bonus-index";
 import { DamageType } from "../../damage/damage-config.type";
 import { DamageTag } from "../../damage/damage-tag.types";
 import { MechanicsEffectsKeys } from "../../damage/mechanics-effect.type";
-import { ChanceDamageModifier, ConditionalDamageModifier, WeightedDamageModifier } from "../../damage/skill-damage-modifiers.type";
+import { ChanceDamageModifier, ConditionalDamageModifier, DamageCondition, WeightedDamageModifier } from "../../damage/skill-damage-modifiers.type";
 import { SkillDamageFlags } from "../../damage/skill-damage-tags.type";
 import { StatusEffectsKeys } from "../../damage/status-effects.type";
 import { LetterMasteryLv } from "../../letter-mastery-lv.type";
@@ -130,6 +130,7 @@ export interface OptionsConfig {
 }
 
 export interface ConditionalDamageModifierScaling {
+    condition: DamageCondition;
     type: ConditionalDamageModifier['type']
     multiplier: {
         baseMultiplier: number;
