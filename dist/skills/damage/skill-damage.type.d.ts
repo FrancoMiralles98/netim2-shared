@@ -42,8 +42,8 @@ export interface SkillDamage extends SkillBase {
     type: 'damage' | 'heal';
     weaponRestricted: TypeWeapon[];
     components: SkillDamageComponents[];
-    hitModifiers?: SkillHitModifier[];
-    damageModifiers?: SkillDamageModifier[];
+    hitModifiers?: SkillHitModifier;
+    damageModifiers?: SkillDamageModifier;
     statusEffects?: Partial<Record<StatusEffectsKeys, number>>;
     mechanicsEffects?: Partial<Record<MechanicsEffectsKeys, number>>;
 }
