@@ -11,7 +11,7 @@ import { EscaladoAtributos } from "../escalado-atributos-types";
 import { SkillScalingLv } from "../escalado-lv.types";
 
 export interface SkillDamageScaling {
-    type: 'damage' | 'heal';
+    type: 'damage'
     cd: SkillCooldownConfig;
     mana: {
         base: number;

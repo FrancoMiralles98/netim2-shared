@@ -6,10 +6,14 @@ export interface SkillBuff extends SkillBase {
     tags?: BuffTags[];
     effects: SkillBuffEffect[];
 }
-export type BuffTags = 'buff';
+export type BuffTags = 'buff' | 'offensive' | 'defensive' | 'skill';
 export interface SkillBuffEffect {
     type: 'next_skill_damage_multiplier';
     allowedSkillIds: UNIQUE_ID_SKILLS[];
     multiplier: number;
+    uses: {
+        base: number;
+        perLv: number;
+    };
     description?: string;
 }

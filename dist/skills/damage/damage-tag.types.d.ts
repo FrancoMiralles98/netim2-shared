@@ -53,4 +53,4 @@
  *  * @property {'ranged'} heal
  * Indica que la skill es una curacion
  */
-export type DamageTag = 'skill' | 'ad' | 'ap' | 'incendio' | 'veneno' | 'sangrado' | 'electrico' | 'weapon' | 'dot' | 'cc' | 'true' | 'melee' | 'ranged' | 'heal';
+export type DamageTag = 'skill' | 'ad' | 'ap' | 'incendio' | 'veneno' | 'sangrado' | 'electrico' | 'weapon' | 'dot' | 'cc' | 'true' | 'melee' | 'ranged';

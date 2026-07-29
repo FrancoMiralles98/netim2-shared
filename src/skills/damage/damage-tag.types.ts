@@ -67,4 +67,3 @@ export type DamageTag =
   | 'true'
   | 'melee'
   | 'ranged'
-  | 'heal'
