@@ -8,6 +8,10 @@ export interface SkillBuffScaling {
         base: number;
         perLv: number;
     };
+    uses: {
+        base: number;
+        perLv: number;
+    };
     mana: {
         base: number;
         perLv: number;

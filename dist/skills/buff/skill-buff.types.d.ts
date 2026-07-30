@@ -12,9 +12,6 @@ export interface SkillBuffEffect {
     type: 'next_skill_damage_multiplier';
     allowedSkillIds: UNIQUE_ID_SKILLS[];
     multiplier: number;
-    uses: {
-        base: number;
-        perLv: number;
-    };
+    uses: number;
     description?: string;
 }
