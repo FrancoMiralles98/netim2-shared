@@ -15,6 +15,13 @@ export interface SkillBuffEffect {
     type: 'next_skill_damage_multiplier';
     allowedSkillIds: UNIQUE_ID_SKILLS[];
     multiplier: number;
+    consumeOn:BuffConsumeTrigger
     uses:number,
     description?: string;
 }
+
+
+export type BuffConsumeTrigger =
+    | 'skill_use'
+    | 'successful_hit'
+    | 'damage_dealt';
