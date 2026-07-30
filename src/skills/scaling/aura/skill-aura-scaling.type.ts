@@ -1,12 +1,13 @@
 import { BonusRefKeys } from "../../../bonus/bonus-index";
 import { SkillCooldownConfig } from "../../skill-base.type";
+import { CombatStatModifierOperation, RoutStatKey } from "../../skill-index";
 import { EscaladoAtributos } from "../escalado-atributos-types";
 import { SkillScalingLv } from "../escalado-lv.types";
 
 export interface SkillAuraScaling {
     type: 'aura';
     escaladoAtributos: EscaladoAtributos;
-    escaladoBuffos: Partial<Record<BonusRefKeys, EscaladoStat>>;
+    escaladoStatsModifiers: EscaladoStatsModifiers[];
     mana: {
         base: number;
         perLv: number;
@@ -16,6 +17,13 @@ export interface SkillAuraScaling {
         base: number;
         perLv: number;
     }
+}
+
+export interface EscaladoStatsModifiers {
+    target: RoutStatKey;
+    onusRefKey: BonusRefKeys;
+    operation: CombatStatModifierOperation;
+    escalado: EscaladoStat
 }
 
 export interface EscaladoStat {

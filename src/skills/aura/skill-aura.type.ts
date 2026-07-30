@@ -1,4 +1,4 @@
-import { BonusRefKeys } from "../../bonus/bonus-index";
+import { BonusCCRefKeys, BonusDañoRefKeys, BonusDefensaRefKeys, BonusMiscsRefKeys, BonusRefKeys, BonusStatsGeneralRefKeys } from "../../bonus/bonus-index";
 import { AuraTag } from "./aura-tags.types";
 import { SkillBase } from "../skill-base.type";
 
@@ -31,7 +31,7 @@ import { SkillBase } from "../skill-base.type";
 export interface SkillAura extends SkillBase {
     type: 'aura';
     duration?: DurationConfig,
-    buffos: Partial<Record<BonusRefKeys, number>>,
+    statsModifiers: StatsModifiers[]
     tags: AuraTag[]
 }
 
@@ -75,3 +75,31 @@ export interface TurnsDuration {
 export interface UntilNoManaDuration {
     type: 'until_no_mana'
 }
+
+export interface StatsModifiers {
+    target: RoutStatKey; //a que stat apunta el aura 
+    bonusRefKey: BonusRefKeys;
+    operation: CombatStatModifierOperation;
+    value: number;
+}
+
+
+export type RoutStatKey =
+    | `general.${BonusStatsGeneralRefKeys}`
+    | `bonus.daño.${BonusDañoRefKeys}`
+    | `bonus.defensa.${BonusDefensaRefKeys}`
+    | `bonus.cc.${BonusCCRefKeys}`
+    | `bonus.miscs.${BonusMiscsRefKeys}`;
+
+/**
+* flat       Suma o resta una cantidad fija
+* increased  Aumento porcentual acumulativo
+* reduced    Reducción porcentual acumulativa
+* override   Reemplaza el valor
+*/
+export type CombatStatModifierOperation =
+    | 'flat'
+    | 'increased'
+    | 'reduced'
+    | 'override';
+
