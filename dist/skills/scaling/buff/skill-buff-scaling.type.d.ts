@@ -1,4 +1,5 @@
 import { SkillCooldownConfig } from "../../skill-base.type";
+import { EscaladoStatsModifiers } from "../aura/skill-aura-scaling.type";
 import { SkillScalingLv } from "../escalado-lv.types";
 export interface SkillBuffScaling {
     type: 'buff';
@@ -15,4 +16,5 @@ export interface SkillBuffScaling {
         base: number;
         escaladoLv: SkillScalingLv;
     };
+    statsScaling: EscaladoStatsModifiers[];
 }

@@ -1,11 +1,12 @@
 import { SkillBase } from "../skill-base.type";
-import { DurationConfig, UNIQUE_ID_SKILLS } from "../skill-index";
+import { DurationConfig, StatsModifiers, UNIQUE_ID_SKILLS } from "../skill-index";
 
 export interface SkillBuff extends SkillBase {
     type: 'buff',
-    duration?: DurationConfig,
+    duration: DurationConfig,
     tags?: BuffTags[],
-    effects: SkillBuffEffect[]
+    effects: SkillBuffEffect[];
+    stats: StatsModifiers[]
 }
 
 export type BuffTags = 'buff' | 'offensive' | 'defensive' | 'skill'

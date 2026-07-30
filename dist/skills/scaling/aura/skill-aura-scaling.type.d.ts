@@ -19,7 +19,7 @@ export interface SkillAuraScaling {
 }
 export interface EscaladoStatsModifiers {
     target: RoutStatKey;
-    onusRefKey: BonusRefKeys;
+    bonusRefKey: BonusRefKeys;
     operation: CombatStatModifierOperation;
     escalado: EscaladoStat;
 }
