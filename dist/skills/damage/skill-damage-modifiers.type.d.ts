@@ -1,4 +1,4 @@
-import { FightEffectId } from "../../fight/effects.types";
+import { StatusEffectsKeys } from "./status-effects.type";
 /**
  * Modificadores que alteran el daño de una skill.
  */
@@ -86,10 +86,10 @@ export interface ConditionalDamageModifier {
  */
 export type DamageCondition = {
     type: 'target_has_effect';
-    effectId: FightEffectId;
+    effectId: StatusEffectsKeys;
 } | {
     type: 'source_has_effect';
-    effectId: FightEffectId;
+    effectId: StatusEffectsKeys;
 };
 /**
  * Modificadores que alteran la cantidad de golpes generados por una skill.
