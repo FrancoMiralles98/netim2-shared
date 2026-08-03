@@ -7,6 +7,7 @@ import { SkillDamageFlags } from "./skill-damage-tags.type";
 import { StatusEffectsKeys } from "./status-effects.type";
 import { SkillBase } from "../skill-base.type";
 import { TypeWeapon } from "../../item/entities-props/equip.type";
+import { CombatStatKey } from "../skill-index";
 /**
  * Representa una habilidad de daño.
  *
@@ -121,4 +122,5 @@ export interface SkillDamageComponents {
 export interface StatsScaling {
     stat: BonusRefKeys;
     ratio: number;
+    target: CombatStatKey;
 }
