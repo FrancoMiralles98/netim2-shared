@@ -2,10 +2,12 @@ import { AllTargetType } from "../gamedata/all-races.type";
 import { ReinosNames } from "../gamedata/reinos-names.type";
 import { EquipType, TypeWeapon } from "../item/entities-props/equip.type";
 import { MonturaType } from "../item/entities-props/montura.type";
+import { Stats } from "../shared/stats.types";
+import { Atributos } from "./attributes.types";
 import { AppliedBuffos } from "./buffos-in-character.type";
 import { CharacterGenero } from "./character-genero.type";
 import { CharacterRole } from "./character-role.enum";
-import { CharacterRace, CharacterSpeciality, CharacterStats } from "./character-stats.type";
+import { CharacterRace, CharacterSpeciality } from "./character-stats.type";
 import { DiscoveryWorld } from "./discovery-world.type";
 import { DungeonInProgressType } from "./dungeon-in-progress.type";
 import { EquipoOptions } from "./equipo-options.type";
@@ -163,7 +165,8 @@ export interface BaseCharacterProps {
     exp_next_lv: number;
     atribute_per_lv: number;
     time_played: number;
-    stats: CharacterStats;
+    stats: Stats;
+    atributos: Atributos
     role: CharacterRole
     montura_lv: number;
     beginning: boolean;
@@ -173,7 +176,7 @@ export interface BaseCharacterProps {
     historial: HistorialInUser[];
     party: Partial<BaseCharacterProps>[]
     type_weapon: TypeWeapon | ''
-    target_type: Extract<AllTargetType,"medio_humanos">;
+    target_type: Extract<AllTargetType, "medio_humanos">;
     raza: CharacterRace;
     montura?: MonturaType;
     gremio_options?: GremioOptions;

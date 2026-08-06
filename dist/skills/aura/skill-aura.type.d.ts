@@ -1,4 +1,4 @@
-import { BonusCCRefKeys, BonusDañoRefKeys, BonusDefensaRefKeys, BonusMiscsRefKeys, BonusRefKeys, BonusStatsGeneralRefKeys } from "../../bonus/bonus-index";
+import { BonusCCRefKeys, BonusDañoRefKeys, BonusDefensaRefKeys, BonusMiscsRefKeys, BonusRefKeys, BonusGeneralRefKeys } from "../../bonus/bonus-index";
 import { AuraTag } from "./aura-tags.types";
 import { SkillBase } from "../skill-base.type";
 /**
@@ -77,7 +77,7 @@ export interface StatsModifiers {
     operation: CombatStatModifierOperation;
     value: number;
 }
-export type RoutStatKey = `general.${BonusStatsGeneralRefKeys}` | `bonus.daño.${BonusDañoRefKeys}` | `bonus.defensa.${BonusDefensaRefKeys}` | `bonus.cc.${BonusCCRefKeys}` | `bonus.miscs.${BonusMiscsRefKeys}`;
+export type RoutStatKey = `general.${BonusGeneralRefKeys}` | `bonus.daño.${BonusDañoRefKeys}` | `bonus.defensa.${BonusDefensaRefKeys}` | `bonus.cc.${BonusCCRefKeys}` | `bonus.miscs.${BonusMiscsRefKeys}`;
 /**
 * flat       Suma o resta una cantidad fija
 * increased  Aumento porcentual acumulativo

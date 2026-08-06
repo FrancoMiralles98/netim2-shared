@@ -1,4 +1,4 @@
-import { BonusCCRefKeys, BonusDañoRefKeys, BonusDefensaRefKeys, BonusMiscsRefKeys, BonusRefKeys, BonusStatsGeneralRefKeys } from "../../../bonus/bonus-index";
+import { BonusCCRefKeys, BonusDañoRefKeys, BonusDefensaRefKeys, BonusMiscsRefKeys, BonusRefKeys, BonusGeneralRefKeys } from "../../../bonus/bonus-index";
 import { DamageType } from "../../damage/damage-config.type";
 import { DamageTag } from "../../damage/damage-tag.types";
 import { MechanicsEffectsKeys } from "../../damage/mechanics-effect.type";
@@ -40,7 +40,7 @@ export interface SkillDamageStatScaling {
     perLv: number;
     target: CombatStatKey;
 }
-export type CombatStatKey = `general.${BonusStatsGeneralRefKeys}` | `bonus.daño.${BonusDañoRefKeys}` | `bonus.defensa.${BonusDefensaRefKeys}` | `bonus.cc.${BonusCCRefKeys}` | `bonus.miscs.${BonusMiscsRefKeys}`;
+export type CombatStatKey = `general.${BonusGeneralRefKeys}` | `bonus.daño.${BonusDañoRefKeys}` | `bonus.defensa.${BonusDefensaRefKeys}` | `bonus.cc.${BonusCCRefKeys}` | `bonus.miscs.${BonusMiscsRefKeys}`;
 export interface EffectsScaling {
     base: number;
     perLv: number;

@@ -1,3 +1,4 @@
+import { Atributos } from "../character/attributes.types";
 import { BaseCharacterProps } from "../character/base-character-props.type";
 import { CharacterAttribute, CharacterRace, CharacterSpeciality } from "../character/character-stats.type";
 import { ReinosBuffType } from "../gamedata/reinos-buff.type";
@@ -24,7 +25,7 @@ type CharacterSummaryBase = Pick<BaseCharacterProps, 'lv' | 'nombre' | 'time_pla
  */
 export type CharacterSummary = Omit<CharacterSummaryBase, 'stats'> & {
     id: string;
-    stats: Pick<BaseCharacterProps['stats'], 'atributos'>;
+    stats: Atributos;
 };
 /**
  * Datos necesarios para inicializar la pantalla de selección de personaje.

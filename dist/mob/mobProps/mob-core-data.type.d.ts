@@ -1,4 +1,4 @@
-import { MobStats } from "./mob-stats.type";
+import { Stats } from "../../shared/stats.types";
 import { MobType } from "./mob.type";
 /**
  * Representa la versión core de un mob utilizada para su definición inicial.
@@ -17,5 +17,5 @@ import { MobType } from "./mob.type";
  * @see MobStats
  */
 export type MobCoreData = Omit<MobType, 'stats'> & {
-    stats?: Partial<MobStats>;
+    stats?: Partial<Stats>;
 };

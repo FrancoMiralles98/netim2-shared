@@ -1,5 +1,4 @@
 import { SpawnConfig } from "./spawn-config.type";
-import { MobStats } from "./mob-stats.type";
 import { IdMobList } from "../id-mob-list.enum";
 import { MobRace } from "./mob-race.type";
 import { SpecificDrop } from "./drop-config.type";
@@ -10,6 +9,7 @@ import { CharacterSpeciality } from "../../character/character-stats.type";
 import { AllTargetType } from "../../gamedata/all-races.type";
 import { UbicationNames } from "../../gamedata/ubication-names.type";
 import { SkillType } from "../../skills/skill-type";
+import { Stats } from "../../shared/stats.types";
 
 /**
  * Representa la estructura completa de un mob
@@ -72,7 +72,7 @@ export interface MobType {
   idMob: IdMobList;
   yang: { min: number, max: number };
   exp: { min: number, max: number };
-  stats: MobStats;
+  stats: Stats;
   hab: SkillType[];
   raza: MobRace;
   target_type: AllTargetType;

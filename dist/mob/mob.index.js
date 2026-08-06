@@ -14,10 +14,12 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(require("./characterSelection/characterSelection.index"), exports);
-__exportStar(require("./gamedata/gamedata.index"), exports);
-__exportStar(require("./character/character-index"), exports);
-__exportStar(require("./bonus/bonus-index"), exports);
-__exportStar(require("./fight/fight.index"), exports);
-__exportStar(require("./skills/skill-index"), exports);
-__exportStar(require("./mob/mob.index"), exports);
+__exportStar(require("./id-mob-list.enum"), exports);
+__exportStar(require("./mobProps/drop-config.type"), exports);
+__exportStar(require("./mobProps/enemie-type.type"), exports);
+__exportStar(require("./mobProps/mob-core-data.type"), exports);
+__exportStar(require("./mobProps/mob-difficult.type"), exports);
+__exportStar(require("./mobProps/mob-race.type"), exports);
+__exportStar(require("./mobProps/mob.type"), exports);
+__exportStar(require("./mobProps/spawn-config.type"), exports);
+//ya en index.ts

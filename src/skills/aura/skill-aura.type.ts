@@ -1,4 +1,4 @@
-import { BonusCCRefKeys, BonusDañoRefKeys, BonusDefensaRefKeys, BonusMiscsRefKeys, BonusRefKeys, BonusStatsGeneralRefKeys } from "../../bonus/bonus-index";
+import { BonusCCRefKeys, BonusDañoRefKeys, BonusDefensaRefKeys, BonusMiscsRefKeys, BonusRefKeys, BonusGeneralRefKeys } from "../../bonus/bonus-index";
 import { AuraTag } from "./aura-tags.types";
 import { SkillBase } from "../skill-base.type";
 
@@ -85,7 +85,7 @@ export interface StatsModifiers {
 
 
 export type RoutStatKey =
-    | `general.${BonusStatsGeneralRefKeys}`
+    | `general.${BonusGeneralRefKeys}`
     | `bonus.daño.${BonusDañoRefKeys}`
     | `bonus.defensa.${BonusDefensaRefKeys}`
     | `bonus.cc.${BonusCCRefKeys}`
