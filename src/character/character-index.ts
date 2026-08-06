@@ -1,4 +1,5 @@
 export * from './base-character-props.type'
+export * from './attributes.types'
 export * from './buffos-in-character.type'
 export * from './character-role.enum'
 export * from './character-stats.type'

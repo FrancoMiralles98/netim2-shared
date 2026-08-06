@@ -15,6 +15,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./base-character-props.type"), exports);
+__exportStar(require("./attributes.types"), exports);
 __exportStar(require("./buffos-in-character.type"), exports);
 __exportStar(require("./character-role.enum"), exports);
 __exportStar(require("./character-stats.type"), exports);
