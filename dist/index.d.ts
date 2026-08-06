@@ -5,3 +5,4 @@ export * from './bonus/bonus-index';
 export * from './fight/fight.index';
 export * from './skills/skill-index';
 export * from './mob/mob.index';
+export * from './shared/shared.index';
