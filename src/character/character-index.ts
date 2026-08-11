@@ -14,4 +14,5 @@ export * from './stars-discovery.type'
 export * from './character-persistence.type'
 export * from './character-genero.type'
 export * from './character-session.type'
+export * from './character-fight-config.type'
 //Ya en index.ts

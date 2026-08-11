@@ -30,4 +30,5 @@ __exportStar(require("./stars-discovery.type"), exports);
 __exportStar(require("./character-persistence.type"), exports);
 __exportStar(require("./character-genero.type"), exports);
 __exportStar(require("./character-session.type"), exports);
+__exportStar(require("./character-fight-config.type"), exports);
 //Ya en index.ts
