@@ -10,6 +10,7 @@ import { AllTargetType } from "../../gamedata/all-races.type";
 import { UbicationNames } from "../../gamedata/ubication-names.type";
 import { SkillType } from "../../skills/skill-type";
 import { Stats } from "../../shared/stats.types";
+import { FightConfig } from "../../character/character-fight-config.type";
 
 /**
  * Representa la estructura completa de un mob
@@ -81,5 +82,6 @@ export interface MobType {
   type_weapon: TypeWeapon;
   specific_drop: SpecificDrop[];
   discovery: number;
+  fightConfig: FightConfig
 }
 

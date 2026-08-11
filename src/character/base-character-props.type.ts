@@ -5,6 +5,7 @@ import { MonturaType } from "../item/entities-props/montura.type";
 import { Stats } from "../shared/stats.types";
 import { Atributos } from "./attributes.types";
 import { AppliedBuffos } from "./buffos-in-character.type";
+import { FightConfig } from "./character-fight-config.type";
 import { CharacterGenero } from "./character-genero.type";
 import { CharacterRole } from "./character-role.enum";
 import { CharacterRace, CharacterSpeciality } from "./character-stats.type";
@@ -181,4 +182,5 @@ export interface BaseCharacterProps {
     montura?: MonturaType;
     gremio_options?: GremioOptions;
     especialidad?: CharacterSpeciality;
+    fightConfig: FightConfig
 }
