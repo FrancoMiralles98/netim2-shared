@@ -6,3 +6,5 @@ export interface CharacterPersistence extends BaseCharacterProps {
     hab: SkillType[]
     inventario: InventoryItem[]
 }
+
+export type CharacterPersistenceWithId = CharacterPersistence & { id: string }
