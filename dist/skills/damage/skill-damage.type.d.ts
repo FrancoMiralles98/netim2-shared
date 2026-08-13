@@ -1,4 +1,4 @@
-import { BonusRefKeys } from "../../bonus/bonus-index";
+import { BonusRefKeys, RoutStatKey } from "../../bonus/bonus-index";
 import { SkillDamageModifier, SkillHitModifier } from "./skill-damage-modifiers.type";
 import { DamageType } from "./damage-config.type";
 import { DamageTag } from "./damage-tag.types";
@@ -7,7 +7,6 @@ import { SkillDamageFlags } from "./skill-damage-tags.type";
 import { StatusEffectsKeys } from "./status-effects.type";
 import { SkillBase } from "../skill-base.type";
 import { TypeWeapon } from "../../item/entities-props/equip.type";
-import { CombatStatKey } from "../skill-index";
 /**
  * Representa una habilidad de daño.
  *
@@ -122,5 +121,5 @@ export interface SkillDamageComponents {
 export interface StatsScaling {
     stat: BonusRefKeys;
     ratio: number;
-    target: CombatStatKey;
+    target: RoutStatKey;
 }

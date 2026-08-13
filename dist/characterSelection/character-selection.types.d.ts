@@ -1,6 +1,7 @@
+import { AttributesRefKeys } from "../bonus/bonus-index";
 import { Atributos } from "../character/attributes.types";
 import { BaseCharacterProps } from "../character/base-character-props.type";
-import { CharacterAttribute, CharacterRace, CharacterSpeciality } from "../character/character-stats.type";
+import { CharacterRace, CharacterSpeciality } from "../character/character-stats.type";
 import { ReinosBuffType } from "../gamedata/reinos-buff.type";
 /**
  * Define la base de datos que se utiliza para construir el resumen de un personaje.
@@ -66,5 +67,5 @@ export interface RaceInfo {
 export interface CharacterStatsSpeciality {
     statsLimit: StatsLimit;
 }
-export type StatsLimit = Record<CharacterAttribute, number>;
+export type StatsLimit = Record<AttributesRefKeys, number>;
 export {};

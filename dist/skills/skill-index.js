@@ -30,10 +30,4 @@ __exportStar(require("./damage/skill-damage-modifiers.type"), exports);
 __exportStar(require("./damage/skill-damage-tags.type"), exports);
 __exportStar(require("./damage/skill-damage.type"), exports);
 __exportStar(require("./damage/status-effects.type"), exports);
-__exportStar(require("./scaling/escalado-atributos-types"), exports);
-__exportStar(require("./scaling/escalado-lv.types"), exports);
-__exportStar(require("./scaling/aura/skill-aura-scaling.type"), exports);
-__exportStar(require("./scaling/damage/skill-damage-scaling.type"), exports);
-__exportStar(require("./scaling/buff/skill-buff-scaling.type"), exports);
-__exportStar(require("./scaling/heal/skill-heal-scaling.types"), exports);
 //Ya en index.ts

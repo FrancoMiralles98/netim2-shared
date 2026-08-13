@@ -19,8 +19,4 @@ export interface Size {
     rows: number;
     cols: number;
 }
-export interface Position {
-    row: number;
-    col: number;
-}
 export type GenericType = 'equip' | 'utility';

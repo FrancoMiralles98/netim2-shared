@@ -14,13 +14,8 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(require("./characterSelection/characterSelection.index"), exports);
-__exportStar(require("./gamedata/gamedata.index"), exports);
-__exportStar(require("./character/character-index"), exports);
-__exportStar(require("./bonus/bonus-index"), exports);
-__exportStar(require("./fight/fight.index"), exports);
-__exportStar(require("./skills/skill-index"), exports);
-__exportStar(require("./mob/mob.index"), exports);
-__exportStar(require("./shared/shared.index"), exports);
-__exportStar(require("./inventory/index-invetory"), exports);
-__exportStar(require("./item/item-index"), exports);
+__exportStar(require("./inventory-item.type"), exports);
+__exportStar(require("./inventory-result.types"), exports);
+__exportStar(require("./item-to-update.types"), exports);
+__exportStar(require("./items-to-consume.types"), exports);
+//Ya en index.ts

@@ -21,5 +21,3 @@ export type CharacterRace =
   'ninja' |
   'guerrero' |
   'sura'
-
-export type CharacterAttribute = Extract<BonusRefKeys, 'VIT' | 'INT' | 'STR' | 'DEX'>

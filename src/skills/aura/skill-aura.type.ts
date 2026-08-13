@@ -1,6 +1,6 @@
-import { BonusCCRefKeys, BonusDañoRefKeys, BonusDefensaRefKeys, BonusMiscsRefKeys, BonusRefKeys, BonusGeneralRefKeys } from "../../bonus/bonus-index";
 import { AuraTag } from "./aura-tags.types";
 import { SkillBase } from "../skill-base.type";
+import { BonusRefKeys, RoutStatKey } from "../../bonus/bonus-index";
 
 /**
  * Representa una habilidad de tipo aura.
@@ -82,14 +82,6 @@ export interface StatsModifiers {
     operation: CombatStatModifierOperation;
     value: number;
 }
-
-
-export type RoutStatKey =
-    | `general.${BonusGeneralRefKeys}`
-    | `bonus.daño.${BonusDañoRefKeys}`
-    | `bonus.defensa.${BonusDefensaRefKeys}`
-    | `bonus.cc.${BonusCCRefKeys}`
-    | `bonus.miscs.${BonusMiscsRefKeys}`;
 
 /**
 * flat       Suma o resta una cantidad fija

@@ -22,9 +22,4 @@ export interface Size {
   cols: number;
 }
 
-export interface Position {
-  row: number;
-  col: number;
-}
-
 export type GenericType = 'equip' | 'utility';
