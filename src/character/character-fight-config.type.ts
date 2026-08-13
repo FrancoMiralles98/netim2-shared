@@ -3,7 +3,15 @@ export interface FightConfig {
         priorityBassicAttack: boolean;
         HealingSkillHpThresholdPercent: number;
         reactiveAuras: boolean;
-        skillPriority: [SkillPriorityType]
+        skillPriority: [
+            'more_damage'
+            , 'more_cd'
+            , 'less_damage'
+            , 'control' //desmayo
+            , 'has_periodicDamage' //(veneno,sangrado etc)
+            , 'less_cd'
+            , 'stat_modifier'
+        ]
     },
     enemies: {
         selector: EnemiePriority, //que tipo de enemigo selecciona al principio de la pelea
