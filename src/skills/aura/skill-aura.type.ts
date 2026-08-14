@@ -93,5 +93,4 @@ export type CombatStatModifierOperation =
     | 'flat'
     | 'increased'
     | 'reduced'
-    | 'override';
 

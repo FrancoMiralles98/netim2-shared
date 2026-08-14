@@ -83,4 +83,4 @@ export interface StatsModifiers {
 * reduced    Reducción porcentual acumulativa
 * override   Reemplaza el valor
 */
-export type CombatStatModifierOperation = 'flat' | 'increased' | 'reduced' | 'override';
+export type CombatStatModifierOperation = 'flat' | 'increased' | 'reduced';
