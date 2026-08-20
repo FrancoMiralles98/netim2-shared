@@ -86,7 +86,8 @@ const bonusFullNameByRef = (bonus) => {
         mana_cost: bonus_list_full_name_enum_1.allFullNameBonusList.MANA_COST,
         regen_mana: bonus_list_full_name_enum_1.allFullNameBonusList.MANA_REGEN,
         def_electrico: bonus_list_full_name_enum_1.allFullNameBonusList.DEF_ELECTRICO,
-        porcentage_mana_cost: bonus_list_full_name_enum_1.allFullNameBonusList.PORCENTAGE_MANA_COST
+        porcentage_mana_cost: bonus_list_full_name_enum_1.allFullNameBonusList.PORCENTAGE_MANA_COST,
+        bonus_electrico: bonus_list_full_name_enum_1.allFullNameBonusList.BONUS_ELECTRICO
     };
     return REFERENCE[bonus] ?? bonus;
 };

@@ -85,7 +85,8 @@ export const bonusFullNameByRef = (bonus: BonusRefKeys) => {
         mana_cost: allFullNameBonusList.MANA_COST,
         regen_mana: allFullNameBonusList.MANA_REGEN,
         def_electrico: allFullNameBonusList.DEF_ELECTRICO,
-        porcentage_mana_cost: allFullNameBonusList.PORCENTAGE_MANA_COST
+        porcentage_mana_cost: allFullNameBonusList.PORCENTAGE_MANA_COST,
+        bonus_electrico: allFullNameBonusList.BONUS_ELECTRICO
     } satisfies Record<BonusRefKeys, allFullNameBonusList>
 
     return REFERENCE[bonus] ?? bonus

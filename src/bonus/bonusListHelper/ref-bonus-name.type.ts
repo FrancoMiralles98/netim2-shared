@@ -19,6 +19,7 @@ export type BonusDañoRefKeys =
   | 'bonus_fuego'
   | 'bonus_estado'
   | 'bonus_sangrado'
+  | 'bonus_electrico'
   | 'critico'
   | 'chaman'
   | 'duracion_estado'
