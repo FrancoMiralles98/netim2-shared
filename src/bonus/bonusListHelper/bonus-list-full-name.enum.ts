@@ -32,7 +32,7 @@ export enum allFullNameBonusList {
   OPCION_DE_ELECTROCUTAR = 'Opcion de Electrocutar',
   MANA = 'Max Mana',
   MANA_COST = 'Costo de Mana',
-  PORCENTAGE_MANA_COST = 'Reduccion al Costo de Mana',
+  PORCENTAGE_MANA_COST = 'Reducción al Costo de Mana',
   MANA_REGEN = 'Regeneración de Mana',
   PROB_DE_BLOQUEAR_ATAQUES_BASICOS = 'Prob de Bloquear Ataques',
   FRECUENCIA_DE_YANG = 'Frecuencia de Yang',
