@@ -121,7 +121,8 @@ export interface SkillDamageComponents {
 export interface StatsScaling {
     stat: BonusRefKeys;
     ratio: number;
-    target: RoutStatKey
+    target: RoutStatKey;
+    power?: number;
 }
 
 

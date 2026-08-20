@@ -122,4 +122,5 @@ export interface StatsScaling {
     stat: BonusRefKeys;
     ratio: number;
     target: RoutStatKey;
+    power?: number;
 }
