@@ -36,7 +36,7 @@ var allFullNameBonusList;
     allFullNameBonusList["OPCION_DE_ELECTROCUTAR"] = "Opcion de Electrocutar";
     allFullNameBonusList["MANA"] = "Max Mana";
     allFullNameBonusList["MANA_COST"] = "Costo de Mana";
-    allFullNameBonusList["PORCENTAGE_MANA_COST"] = "Reduccion al Costo de Mana";
+    allFullNameBonusList["PORCENTAGE_MANA_COST"] = "Reducci\u00F3n al Costo de Mana";
     allFullNameBonusList["MANA_REGEN"] = "Regeneraci\u00F3n de Mana";
     allFullNameBonusList["PROB_DE_BLOQUEAR_ATAQUES_BASICOS"] = "Prob de Bloquear Ataques";
     allFullNameBonusList["FRECUENCIA_DE_YANG"] = "Frecuencia de Yang";
