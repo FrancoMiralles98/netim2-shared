@@ -567,6 +567,7 @@ export type FightEvent =
     | StatusEffectDurationUpdatedEvent
     | StatusEffectDeactivatedEvent
     | ControlEffectProcessedEvent
+    | StatusEffectStackProcEvent
 
     // Derrotas
     | FighterDefeatedEvent;
