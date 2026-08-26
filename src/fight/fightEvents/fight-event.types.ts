@@ -429,7 +429,24 @@ export interface StatusEffectTickedEvent
 
     appliedDamage: number;
 
+    targetCurrentHp: number;
+
     remainingTurns: number;
+}
+
+export interface StatusEffectStackProcEvent
+    extends FightEventBase<'status_effect_stack_proc'> {
+    effectInstanceId: string;
+    effectId: ActiveStatusEffectId;
+
+    sourceFighterId: string;
+    targetFighterId: string;
+
+    currentStacks: number;
+
+    appliedDamage: number;
+
+    targetCurrentHp: number;
 }
 
 export interface StatusEffectDurationUpdatedEvent

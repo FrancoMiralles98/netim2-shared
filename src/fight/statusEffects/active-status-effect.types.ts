@@ -1,4 +1,4 @@
-import { ActiveStatusEffectData } from "./effect-data.types";
+import { ActiveStatusEffectData, FireEffectData, PoisonEffectData } from "./effect-data.types";
 import { CombatStatModifier } from "../activeAura/active-aura.type";
 import { DurationConfig, StatusEffectsKeys } from "../../skills/skill-index";
 
@@ -33,3 +33,18 @@ export interface StatusEffectStackProcResult {
     consumedStacks: number;
     remainingStacks: number;
 }
+
+export type PeriodicEffect = Extract<
+    ActiveStatusEffectId,
+    'veneno' | 'incendio' | 'sangrado' | 'electrico'
+>;
+
+export type ControlEffect = Extract<
+    ActiveStatusEffectId,
+    'desmayo'
+>;
+
+export type TimedStatModifier = Extract<
+    ActiveStatusEffectId,
+    'retardo'
+>;

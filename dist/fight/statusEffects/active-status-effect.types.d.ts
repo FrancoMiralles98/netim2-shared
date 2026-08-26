@@ -23,3 +23,6 @@ export interface StatusEffectStackProcResult {
     consumedStacks: number;
     remainingStacks: number;
 }
+export type PeriodicEffect = Extract<ActiveStatusEffectId, 'veneno' | 'incendio' | 'sangrado' | 'electrico'>;
+export type ControlEffect = Extract<ActiveStatusEffectId, 'desmayo'>;
+export type TimedStatModifier = Extract<ActiveStatusEffectId, 'retardo'>;
