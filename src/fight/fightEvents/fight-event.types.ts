@@ -11,70 +11,13 @@ import { DamageType, UNIQUE_ID_SKILLS } from "../../skills/skill-index";
 export interface DamageResolutionSnapshot {
     damageType: DamageType;
     delivery: DamageDelivery;
-
-    /**
-     * Daño antes de bonificaciones ofensivas.
-     */
-    rawDamage: number;
-
-    /**
-     * Daño después de bonificaciones, damageModifiers,
-     * críticos y otros multiplicadores.
-     */
-    modifiedDamage: number;
-
-    mitigatedByDefense: number;
-    mitigatedByBlock: number;
-    mitigatedByResistance: number;
-
-    /**
-     * Suma de todas las mitigaciones.
-     */
-    totalMitigated: number;
-
-    /**
-     * Daño resultante antes de limitarlo por el HP restante.
-     */
-    finalDamage: number;
-
-    /**
-     * Daño que efectivamente perdió el objetivo.
-     */
     appliedDamage: number;
-
-    overkillDamage: number;
 }
 
 export interface HealingResolutionSnapshot {
-    rawHealing: number;
-
-    bonusHealing: number;
-
     critical: boolean;
-
-    /**
-     * Curación después de bonus y crítico,
-     * pero antes de las reducciones.
-     */
-    modifiedHealing: number;
-
-    reducedByHealingReduction: number;
-    reducedByPoison: number;
-
     totalPrevented: number;
-
-    /**
-     * Curación resultante antes de limitarla
-     * por el HP faltante.
-     */
-    finalHealing: number;
-
-    /**
-     * HP efectivamente recuperado.
-     */
     appliedHealing: number;
-
-    overhealing: number;
 }
 
 export interface StatusEffectSnapshot {
@@ -90,7 +33,6 @@ export interface StatusEffectSnapshot {
         current: number;
         toApplyExtraDamage: number;
     };
-
     damagePerTick?: number;
 }
 
@@ -275,7 +217,7 @@ export interface SkillUsedEvent
 
     skillId: UNIQUE_ID_SKILLS;
 
-    targetIds: string[];
+    targetId: string[];
 
     manaSpent: number;
 }
@@ -392,8 +334,6 @@ export interface StatusEffectResistedEvent
     skillId?: UNIQUE_ID_SKILLS;
 
     effectId: ActiveStatusEffectId;
-
-    resistanceChance: number;
 }
 
 export type StatusEffectUpdateType =
@@ -424,8 +364,6 @@ export interface StatusEffectTickedEvent
 
     sourceFighterId: string;
     targetFighterId: string;
-
-    tickNumber: number;
 
     appliedDamage: number;
 

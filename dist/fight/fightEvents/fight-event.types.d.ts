@@ -10,54 +10,12 @@ import { DamageType, UNIQUE_ID_SKILLS } from "../../skills/skill-index";
 export interface DamageResolutionSnapshot {
     damageType: DamageType;
     delivery: DamageDelivery;
-    /**
-     * Daño antes de bonificaciones ofensivas.
-     */
-    rawDamage: number;
-    /**
-     * Daño después de bonificaciones, damageModifiers,
-     * críticos y otros multiplicadores.
-     */
-    modifiedDamage: number;
-    mitigatedByDefense: number;
-    mitigatedByBlock: number;
-    mitigatedByResistance: number;
-    /**
-     * Suma de todas las mitigaciones.
-     */
-    totalMitigated: number;
-    /**
-     * Daño resultante antes de limitarlo por el HP restante.
-     */
-    finalDamage: number;
-    /**
-     * Daño que efectivamente perdió el objetivo.
-     */
     appliedDamage: number;
-    overkillDamage: number;
 }
 export interface HealingResolutionSnapshot {
-    rawHealing: number;
-    bonusHealing: number;
     critical: boolean;
-    /**
-     * Curación después de bonus y crítico,
-     * pero antes de las reducciones.
-     */
-    modifiedHealing: number;
-    reducedByHealingReduction: number;
-    reducedByPoison: number;
     totalPrevented: number;
-    /**
-     * Curación resultante antes de limitarla
-     * por el HP faltante.
-     */
-    finalHealing: number;
-    /**
-     * HP efectivamente recuperado.
-     */
     appliedHealing: number;
-    overhealing: number;
 }
 export interface StatusEffectSnapshot {
     instanceId: string;
@@ -173,7 +131,7 @@ export interface BasicAttackUsedEvent extends FightEventBase<'basic_attack_used'
 export interface SkillUsedEvent extends FightEventBase<'skill_used'> {
     casterId: string;
     skillId: UNIQUE_ID_SKILLS;
-    targetIds: string[];
+    targetId: string[];
     manaSpent: number;
 }
 export interface DoubleHitTriggeredEvent extends FightEventBase<'double_hit_triggered'> {
@@ -246,7 +204,6 @@ export interface StatusEffectResistedEvent extends FightEventBase<'status_effect
     targetFighterId: string;
     skillId?: UNIQUE_ID_SKILLS;
     effectId: ActiveStatusEffectId;
-    resistanceChance: number;
 }
 export type StatusEffectUpdateType = 'duration_accumulated' | 'duration_refreshed' | 'damage_replaced' | 'damage_kept' | 'stack_added' | 'stack_triggered';
 export interface StatusEffectUpdatedEvent extends FightEventBase<'status_effect_updated'> {
@@ -262,7 +219,6 @@ export interface StatusEffectTickedEvent extends FightEventBase<'status_effect_t
     effectId: ActiveStatusEffectId;
     sourceFighterId: string;
     targetFighterId: string;
-    tickNumber: number;
     appliedDamage: number;
     targetCurrentHp: number;
     remainingTurns: number;
