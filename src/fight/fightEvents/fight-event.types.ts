@@ -60,9 +60,7 @@ export interface TurnSkippedEvent
 export interface TurnEndedEvent
     extends FightEventBase<'turn_ended'> {
     actorId: string;
-
     actorAlive: boolean;
-
     actorCurrentHp: number;
     actorCurrentMana: number;
 }
@@ -82,16 +80,9 @@ export type ResourceChangeReason =
 export interface ResourceChangedEvent
     extends FightEventBase<'resource_changed'> {
     fighterId: string;
-
     resource: FighterResourceType;
-    reason: ResourceChangeReason;
-
     previousValue: number;
     currentValue: number;
-
-    /**
-     * Siempre positivo.
-     */
     amount: number;
 }
 
@@ -99,8 +90,6 @@ export interface CooldownUpdatedEvent
     extends FightEventBase<'cooldown_updated'> {
     fighterId: string;
     skillId: UNIQUE_ID_SKILLS;
-
-    previousRemainingTurns: number;
     remainingTurns: number;
 }
 
@@ -110,8 +99,6 @@ export interface AuraActivatedEvent
 
     auraInstanceId: string;
     skillId: UNIQUE_ID_SKILLS;
-
-    appliedModifiers: readonly CombatStatModifier[];
 
     remainingTurns?: number;
 }
@@ -134,7 +121,6 @@ export interface AuraDurationUpdatedEvent
     auraInstanceId: string;
     skillId: UNIQUE_ID_SKILLS;
 
-    previousRemainingTurns: number;
     remainingTurns: number;
 }
 
@@ -165,11 +151,6 @@ export interface BuffConsumedEvent
     buffInstanceId: string;
     skillId: UNIQUE_ID_SKILLS;
 
-    reason:
-    | 'skill_used'
-    | 'successful_hit'
-    | 'damage_dealt';
-
     remainingUses: number;
 }
 
@@ -180,7 +161,6 @@ export interface BuffDurationUpdatedEvent
     buffInstanceId: string;
     skillId: UNIQUE_ID_SKILLS;
 
-    previousRemainingTurns: number;
     remainingTurns: number;
 }
 
@@ -190,13 +170,6 @@ export interface BuffDeactivatedEvent
 
     buffInstanceId: string;
     skillId: UNIQUE_ID_SKILLS;
-
-    reason:
-    | 'duration_expired'
-    | 'uses_consumed'
-    | 'source_defeated'
-    | 'removed'
-    | 'replaced';
 }
 
 export interface ActionSelectedEvent
@@ -243,7 +216,6 @@ export interface HitResolvedEvent
     | {
         type: 'skill';
         skillId: UNIQUE_ID_SKILLS;
-        componentIndex?: number;
     };
 
     /**
@@ -260,7 +232,6 @@ export interface DamageResolvedEvent
 
     targetFighterId: string;
 
-    skillId?: UNIQUE_ID_SKILLS;
     componentIndex?: number;
     hitIndex?: number;
 
@@ -269,28 +240,11 @@ export interface DamageResolvedEvent
 
     resolution: DamageResolutionSnapshot;
 
-    targetPreviousHp: number;
     targetCurrentHp: number;
 
     targetDefeated: boolean;
 }
 
-
-export type HealingSource =
-    | {
-        type: 'skill';
-        skillId: UNIQUE_ID_SKILLS;
-    }
-    | {
-        type: 'life_steal';
-    }
-    | {
-        type: 'spell_vampirism';
-        skillId: UNIQUE_ID_SKILLS;
-    }
-    | {
-        type: 'regeneration';
-    };
 
 
 export interface HealingResolvedEvent
@@ -298,41 +252,21 @@ export interface HealingResolvedEvent
     sourceFighterId: string;
     targetFighterId: string;
 
-    source: HealingSource;
-
     resolution: HealingResolutionSnapshot;
 
-    targetPreviousHp: number;
     targetCurrentHp: number;
 }
 
-export interface StatusEffectApplicationAttemptedEvent
-    extends FightEventBase<'status_effect_application_attempted'> {
-    sourceFighterId: string;
-    targetFighterId: string;
-
-    skillId?: UNIQUE_ID_SKILLS;
-
-    effectId: ActiveStatusEffectId;
-
-    applicationChance: number;
-    resistanceChance: number;
-}
 
 export interface StatusEffectAppliedEvent
     extends FightEventBase<'status_effect_applied'> {
     effect: StatusEffectSnapshot;
-
-    skillId?: UNIQUE_ID_SKILLS;
 }
 
 export interface StatusEffectResistedEvent
     extends FightEventBase<'status_effect_resisted'> {
     sourceFighterId: string;
     targetFighterId: string;
-
-    skillId?: UNIQUE_ID_SKILLS;
-
     effectId: ActiveStatusEffectId;
 }
 
@@ -353,7 +287,6 @@ export interface StatusEffectUpdatedEvent
 
     updateType: StatusEffectUpdateType;
 
-    previous: StatusEffectSnapshot;
     current: StatusEffectSnapshot;
 }
 
@@ -412,8 +345,6 @@ export interface StatusEffectDeactivatedEvent
     effectId: ActiveStatusEffectId;
 
     targetFighterId: string;
-
-    reason: StatusEffectDeactivationReason;
 }
 
 
@@ -455,7 +386,6 @@ export type FighterDefeatCause =
 export interface FighterDefeatedEvent
     extends FightEventBase<'fighter_defeated'> {
     fighterId: string;
-
     cause: FighterDefeatCause;
 }
 
@@ -497,7 +427,6 @@ export type FightEvent =
     | HealingResolvedEvent
 
     // Estados
-    | StatusEffectApplicationAttemptedEvent
     | StatusEffectAppliedEvent
     | StatusEffectResistedEvent
     | StatusEffectUpdatedEvent

@@ -10,7 +10,4 @@ export type HitResolutionSnapshot =
       }
     | {
           result: 'hit';
-          critical: boolean;
-          penetrating: boolean;
-          doble_trigged: boolean
       };
