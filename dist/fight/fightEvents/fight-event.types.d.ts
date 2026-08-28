@@ -1,7 +1,6 @@
 import { DamageDelivery } from "../statistics/damage-statistics.types";
 import { FightEventBase } from "./resource/fight-event-base.types";
 import { FightResult } from "../fight/fight.type";
-import { CombatStatModifier } from "../activeAura/active-aura.type";
 import { CombatAction } from "../combatAction/combat-action.types";
 import { HitResolutionSnapshot } from "./resource/hit-resolution-snapshot.types";
 import { CombatDamageSource } from "./resource/combat-damage-resource.types";
@@ -53,25 +52,19 @@ export type ResourceChangeReason = 'hp_regeneration' | 'mana_regeneration' | 'ma
 export interface ResourceChangedEvent extends FightEventBase<'resource_changed'> {
     fighterId: string;
     resource: FighterResourceType;
-    reason: ResourceChangeReason;
     previousValue: number;
     currentValue: number;
-    /**
-     * Siempre positivo.
-     */
     amount: number;
 }
 export interface CooldownUpdatedEvent extends FightEventBase<'cooldown_updated'> {
     fighterId: string;
     skillId: UNIQUE_ID_SKILLS;
-    previousRemainingTurns: number;
     remainingTurns: number;
 }
 export interface AuraActivatedEvent extends FightEventBase<'aura_activated'> {
     fighterId: string;
     auraInstanceId: string;
     skillId: UNIQUE_ID_SKILLS;
-    appliedModifiers: readonly CombatStatModifier[];
     remainingTurns?: number;
 }
 export interface AuraUpkeepPaidEvent extends FightEventBase<'aura_upkeep_paid'> {
@@ -85,7 +78,6 @@ export interface AuraDurationUpdatedEvent extends FightEventBase<'aura_duration_
     fighterId: string;
     auraInstanceId: string;
     skillId: UNIQUE_ID_SKILLS;
-    previousRemainingTurns: number;
     remainingTurns: number;
 }
 export interface AuraDeactivatedEvent extends FightEventBase<'aura_deactivated'> {
@@ -104,21 +96,18 @@ export interface BuffConsumedEvent extends FightEventBase<'buff_consumed'> {
     fighterId: string;
     buffInstanceId: string;
     skillId: UNIQUE_ID_SKILLS;
-    reason: 'skill_used' | 'successful_hit' | 'damage_dealt';
     remainingUses: number;
 }
 export interface BuffDurationUpdatedEvent extends FightEventBase<'buff_duration_updated'> {
     fighterId: string;
     buffInstanceId: string;
     skillId: UNIQUE_ID_SKILLS;
-    previousRemainingTurns: number;
     remainingTurns: number;
 }
 export interface BuffDeactivatedEvent extends FightEventBase<'buff_deactivated'> {
     fighterId: string;
     buffInstanceId: string;
     skillId: UNIQUE_ID_SKILLS;
-    reason: 'duration_expired' | 'uses_consumed' | 'source_defeated' | 'removed' | 'replaced';
 }
 export interface ActionSelectedEvent extends FightEventBase<'action_selected'> {
     actorId: string;
@@ -147,7 +136,6 @@ export interface HitResolvedEvent extends FightEventBase<'hit_resolved'> {
     } | {
         type: 'skill';
         skillId: UNIQUE_ID_SKILLS;
-        componentIndex?: number;
     };
     /**
      * Empieza desde 0.
@@ -158,51 +146,26 @@ export interface HitResolvedEvent extends FightEventBase<'hit_resolved'> {
 export interface DamageResolvedEvent extends FightEventBase<'damage_resolved'> {
     source: CombatDamageSource;
     targetFighterId: string;
-    skillId?: UNIQUE_ID_SKILLS;
     componentIndex?: number;
     hitIndex?: number;
     critical: boolean;
     penetrating: boolean;
     resolution: DamageResolutionSnapshot;
-    targetPreviousHp: number;
     targetCurrentHp: number;
     targetDefeated: boolean;
 }
-export type HealingSource = {
-    type: 'skill';
-    skillId: UNIQUE_ID_SKILLS;
-} | {
-    type: 'life_steal';
-} | {
-    type: 'spell_vampirism';
-    skillId: UNIQUE_ID_SKILLS;
-} | {
-    type: 'regeneration';
-};
 export interface HealingResolvedEvent extends FightEventBase<'healing_resolved'> {
     sourceFighterId: string;
     targetFighterId: string;
-    source: HealingSource;
     resolution: HealingResolutionSnapshot;
-    targetPreviousHp: number;
     targetCurrentHp: number;
-}
-export interface StatusEffectApplicationAttemptedEvent extends FightEventBase<'status_effect_application_attempted'> {
-    sourceFighterId: string;
-    targetFighterId: string;
-    skillId?: UNIQUE_ID_SKILLS;
-    effectId: ActiveStatusEffectId;
-    applicationChance: number;
-    resistanceChance: number;
 }
 export interface StatusEffectAppliedEvent extends FightEventBase<'status_effect_applied'> {
     effect: StatusEffectSnapshot;
-    skillId?: UNIQUE_ID_SKILLS;
 }
 export interface StatusEffectResistedEvent extends FightEventBase<'status_effect_resisted'> {
     sourceFighterId: string;
     targetFighterId: string;
-    skillId?: UNIQUE_ID_SKILLS;
     effectId: ActiveStatusEffectId;
 }
 export type StatusEffectUpdateType = 'duration_accumulated' | 'duration_refreshed' | 'damage_replaced' | 'damage_kept' | 'stack_added' | 'stack_triggered';
@@ -211,7 +174,6 @@ export interface StatusEffectUpdatedEvent extends FightEventBase<'status_effect_
     effectId: ActiveStatusEffectId;
     targetFighterId: string;
     updateType: StatusEffectUpdateType;
-    previous: StatusEffectSnapshot;
     current: StatusEffectSnapshot;
 }
 export interface StatusEffectTickedEvent extends FightEventBase<'status_effect_ticked'> {
@@ -244,7 +206,6 @@ export interface StatusEffectDeactivatedEvent extends FightEventBase<'status_eff
     effectInstanceId: string;
     effectId: ActiveStatusEffectId;
     targetFighterId: string;
-    reason: StatusEffectDeactivationReason;
 }
 export interface ControlEffectProcessedEvent extends FightEventBase<'control_effect_processed'> {
     fighterId: string;
@@ -274,4 +235,4 @@ export interface FighterDefeatedEvent extends FightEventBase<'fighter_defeated'>
     fighterId: string;
     cause: FighterDefeatCause;
 }
-export type FightEvent = FightStartedEvent | TurnStartedEvent | TurnSkippedEvent | TurnEndedEvent | FightFinishedEvent | ResourceChangedEvent | CooldownUpdatedEvent | AuraActivatedEvent | AuraUpkeepPaidEvent | AuraDurationUpdatedEvent | AuraDeactivatedEvent | BuffAppliedEvent | BuffConsumedEvent | BuffDurationUpdatedEvent | BuffDeactivatedEvent | ActionSelectedEvent | BasicAttackUsedEvent | SkillUsedEvent | DoubleHitTriggeredEvent | HitResolvedEvent | DamageResolvedEvent | HealingResolvedEvent | StatusEffectApplicationAttemptedEvent | StatusEffectAppliedEvent | StatusEffectResistedEvent | StatusEffectUpdatedEvent | StatusEffectTickedEvent | StatusEffectDurationUpdatedEvent | StatusEffectDeactivatedEvent | ControlEffectProcessedEvent | StatusEffectStackProcEvent | FighterDefeatedEvent;
+export type FightEvent = FightStartedEvent | TurnStartedEvent | TurnSkippedEvent | TurnEndedEvent | FightFinishedEvent | ResourceChangedEvent | CooldownUpdatedEvent | AuraActivatedEvent | AuraUpkeepPaidEvent | AuraDurationUpdatedEvent | AuraDeactivatedEvent | BuffAppliedEvent | BuffConsumedEvent | BuffDurationUpdatedEvent | BuffDeactivatedEvent | ActionSelectedEvent | BasicAttackUsedEvent | SkillUsedEvent | DoubleHitTriggeredEvent | HitResolvedEvent | DamageResolvedEvent | HealingResolvedEvent | StatusEffectAppliedEvent | StatusEffectResistedEvent | StatusEffectUpdatedEvent | StatusEffectTickedEvent | StatusEffectDurationUpdatedEvent | StatusEffectDeactivatedEvent | ControlEffectProcessedEvent | StatusEffectStackProcEvent | FighterDefeatedEvent;

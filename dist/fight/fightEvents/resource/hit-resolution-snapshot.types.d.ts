@@ -6,7 +6,4 @@ export type HitResolutionSnapshot = {
     result: 'blocked';
 } | {
     result: 'hit';
-    critical: boolean;
-    penetrating: boolean;
-    doble_trigged: boolean;
 };
