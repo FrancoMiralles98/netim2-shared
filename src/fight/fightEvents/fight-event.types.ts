@@ -1,7 +1,6 @@
 import { DamageDelivery } from "../statistics/damage-statistics.types";
 import { FightEventBase } from "./resource/fight-event-base.types";
 import { FightResult } from "../fight/fight.type";
-import { CombatStatModifier } from "../activeAura/active-aura.type";
 import { CombatAction } from "../combatAction/combat-action.types";
 import { HitResolutionSnapshot } from "./resource/hit-resolution-snapshot.types";
 import { CombatDamageSource } from "./resource/combat-damage-resource.types";
@@ -21,14 +20,8 @@ export interface HealingResolutionSnapshot {
 }
 
 export interface StatusEffectSnapshot {
-    instanceId: string;
     effectId: ActiveStatusEffectId;
-
-    sourceFighterId: string;
-    targetFighterId: string;
-
     remainingTurns: number;
-
     stacks?: {
         current: number;
         toApplyExtraDamage: number;
@@ -59,7 +52,6 @@ export interface TurnSkippedEvent
 
 export interface TurnEndedEvent
     extends FightEventBase<'turn_ended'> {
-    actorId: string;
     actorAlive: boolean;
     actorCurrentHp: number;
     actorCurrentMana: number;
@@ -79,7 +71,6 @@ export type ResourceChangeReason =
 
 export interface ResourceChangedEvent
     extends FightEventBase<'resource_changed'> {
-    fighterId: string;
     resource: FighterResourceType;
     previousValue: number;
     currentValue: number;
@@ -88,26 +79,18 @@ export interface ResourceChangedEvent
 
 export interface CooldownUpdatedEvent
     extends FightEventBase<'cooldown_updated'> {
-    fighterId: string;
     skillId: UNIQUE_ID_SKILLS;
     remainingTurns: number;
 }
 
 export interface AuraActivatedEvent
     extends FightEventBase<'aura_activated'> {
-    fighterId: string;
-
-    auraInstanceId: string;
     skillId: UNIQUE_ID_SKILLS;
-
     remainingTurns?: number;
 }
 
 export interface AuraUpkeepPaidEvent
     extends FightEventBase<'aura_upkeep_paid'> {
-    fighterId: string;
-
-    auraInstanceId: string;
     skillId: UNIQUE_ID_SKILLS;
 
     manaSpent: number;
@@ -116,9 +99,6 @@ export interface AuraUpkeepPaidEvent
 
 export interface AuraDurationUpdatedEvent
     extends FightEventBase<'aura_duration_updated'> {
-    fighterId: string;
-
-    auraInstanceId: string;
     skillId: UNIQUE_ID_SKILLS;
 
     remainingTurns: number;
@@ -126,89 +106,55 @@ export interface AuraDurationUpdatedEvent
 
 export interface AuraDeactivatedEvent
     extends FightEventBase<'aura_deactivated'> {
-    fighterId: string;
-
-    auraInstanceId: string;
     skillId: UNIQUE_ID_SKILLS;
-
 }
 
 export interface BuffAppliedEvent
     extends FightEventBase<'buff_applied'> {
-    sourceFighterId: string;
-    targetFighterId: string;
-
-    buffInstanceId: string;
     skillId: UNIQUE_ID_SKILLS;
-
     remainingTurns?: number;
 }
 
 export interface BuffConsumedEvent
     extends FightEventBase<'buff_consumed'> {
-    fighterId: string;
-
-    buffInstanceId: string;
     skillId: UNIQUE_ID_SKILLS;
-
     remainingUses: number;
 }
 
 export interface BuffDurationUpdatedEvent
     extends FightEventBase<'buff_duration_updated'> {
-    fighterId: string;
-
-    buffInstanceId: string;
     skillId: UNIQUE_ID_SKILLS;
-
     remainingTurns: number;
 }
 
 export interface BuffDeactivatedEvent
     extends FightEventBase<'buff_deactivated'> {
-    fighterId: string;
-
-    buffInstanceId: string;
     skillId: UNIQUE_ID_SKILLS;
 }
 
 export interface ActionSelectedEvent
     extends FightEventBase<'action_selected'> {
-    actorId: string;
     action: CombatAction;
 }
 
 export interface BasicAttackUsedEvent
     extends FightEventBase<'basic_attack_used'> {
-    attackerId: string;
-    targetId: string;
 }
 
 export interface SkillUsedEvent
     extends FightEventBase<'skill_used'> {
-    casterId: string;
-
     skillId: UNIQUE_ID_SKILLS;
-
-    targetId: string[];
-
     manaSpent: number;
 }
 
 
 export interface DoubleHitTriggeredEvent
     extends FightEventBase<'double_hit_triggered'> {
-    attackerId: string;
-    targetId: string;
-
     generatedHitCount: number;
 }
 
 export interface HitResolvedEvent
     extends FightEventBase<'hit_resolved'> {
-    attackerId: string;
-    targetId: string;
-
     source:
     | {
         type: 'basic_attack';
@@ -230,8 +176,6 @@ export interface DamageResolvedEvent
     extends FightEventBase<'damage_resolved'> {
     source: CombatDamageSource;
 
-    targetFighterId: string;
-
     componentIndex?: number;
     hitIndex?: number;
 
@@ -239,9 +183,7 @@ export interface DamageResolvedEvent
     penetrating: boolean;
 
     resolution: DamageResolutionSnapshot;
-
     targetCurrentHp: number;
-
     targetDefeated: boolean;
 }
 
@@ -249,11 +191,7 @@ export interface DamageResolvedEvent
 
 export interface HealingResolvedEvent
     extends FightEventBase<'healing_resolved'> {
-    sourceFighterId: string;
-    targetFighterId: string;
-
     resolution: HealingResolutionSnapshot;
-
     targetCurrentHp: number;
 }
 
@@ -265,8 +203,6 @@ export interface StatusEffectAppliedEvent
 
 export interface StatusEffectResistedEvent
     extends FightEventBase<'status_effect_resisted'> {
-    sourceFighterId: string;
-    targetFighterId: string;
     effectId: ActiveStatusEffectId;
 }
 
@@ -280,38 +216,22 @@ export type StatusEffectUpdateType =
 
 export interface StatusEffectUpdatedEvent
     extends FightEventBase<'status_effect_updated'> {
-    effectInstanceId: string;
     effectId: ActiveStatusEffectId;
-
-    targetFighterId: string;
-
     updateType: StatusEffectUpdateType;
-
     current: StatusEffectSnapshot;
 }
 
 export interface StatusEffectTickedEvent
     extends FightEventBase<'status_effect_ticked'> {
-    effectInstanceId: string;
     effectId: ActiveStatusEffectId;
-
-    sourceFighterId: string;
-    targetFighterId: string;
-
     appliedDamage: number;
-
     targetCurrentHp: number;
-
     remainingTurns: number;
 }
 
 export interface StatusEffectStackProcEvent
     extends FightEventBase<'status_effect_stack_proc'> {
-    effectInstanceId: string;
     effectId: ActiveStatusEffectId;
-
-    sourceFighterId: string;
-    targetFighterId: string;
 
     currentStacks: number;
 
@@ -322,10 +242,7 @@ export interface StatusEffectStackProcEvent
 
 export interface StatusEffectDurationUpdatedEvent
     extends FightEventBase<'status_effect_duration_updated'> {
-    effectInstanceId: string;
     effectId: ActiveStatusEffectId;
-
-    targetFighterId: string;
 
     previousRemainingTurns: number;
     remainingTurns: number;
@@ -341,7 +258,6 @@ export type StatusEffectDeactivationReason =
 
 export interface StatusEffectDeactivatedEvent
     extends FightEventBase<'status_effect_deactivated'> {
-    effectInstanceId: string;
     effectId: ActiveStatusEffectId;
 
     targetFighterId: string;
@@ -352,7 +268,6 @@ export interface ControlEffectProcessedEvent
     extends FightEventBase<'control_effect_processed'> {
     fighterId: string;
 
-    effectInstanceId: string;
     effectId: ActiveStatusEffectId;
 
     controlType: 'stun';

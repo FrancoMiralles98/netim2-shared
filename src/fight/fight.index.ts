@@ -19,4 +19,5 @@ export * from './statistics/resource-statistics.types'
 export * from './statistics/statistics-inputs.types'
 export * from './statusEffects/active-status-effect.types'
 export * from './statusEffects/effect-data.types'
+export * from './fightEvents/fight-playback-payload.types'
 //Ya en index.ts
