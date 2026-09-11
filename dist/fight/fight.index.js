@@ -36,5 +36,6 @@ __exportStar(require("./statistics/statistics-inputs.types"), exports);
 __exportStar(require("./statusEffects/active-status-effect.types"), exports);
 __exportStar(require("./statusEffects/effect-data.types"), exports);
 __exportStar(require("./fightEvents/fight-playback-payload.types"), exports);
+__exportStar(require("./fighter/fighter.summary.types"), exports);
 __exportStar(require("./api/fightResponse"), exports);
 //Ya en index.ts

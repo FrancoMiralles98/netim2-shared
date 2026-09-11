@@ -1,11 +1,13 @@
 import { UNIQUE_ID_SKILLS } from "../../skills/unique-id-skill.enum";
 import { FighterInitiativeResult, FightPlaybackPayload, FightResult, FightSide } from "../fight.index";
+import { FighterFightSummary } from "../fighter/fighter.summary.types";
 
 export interface FightResponse {
     fightPlaybackPayload: FightPlaybackPayload;
     result: FightResult;
     initiativeResults: FighterInitiativeResult[]
-    initialFighters: InitialFighterStats[]
+    initialFighters: InitialFighterStats[];
+    fighterFightSummary: FighterFightSummary[]
 }
 
 export interface InitialFighterStats {

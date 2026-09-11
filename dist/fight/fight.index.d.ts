@@ -20,4 +20,5 @@ export * from './statistics/statistics-inputs.types';
 export * from './statusEffects/active-status-effect.types';
 export * from './statusEffects/effect-data.types';
 export * from './fightEvents/fight-playback-payload.types';
+export * from './fighter/fighter.summary.types';
 export * from './api/fightResponse';

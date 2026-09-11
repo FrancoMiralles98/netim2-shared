@@ -1,4 +1,4 @@
-import { MasteryLvRank } from "./skill-lv-rank.types";
+import { LetterMasteryLv } from "./letter-mastery-lv.type";
 import { UNIQUE_ID_SKILLS } from "./unique-id-skill.enum";
 /**
  * Propiedades base compartidas por todas las habilidades.
@@ -29,7 +29,8 @@ import { UNIQUE_ID_SKILLS } from "./unique-id-skill.enum";
  */
 export interface SkillBase {
     id: UNIQUE_ID_SKILLS;
-    lv: number | MasteryLvRank;
+    lv: number;
+    mastery: LetterMasteryLv | 'N';
     nombre: string;
     description: string;
     mana: SkillManaCost;
