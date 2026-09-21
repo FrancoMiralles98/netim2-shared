@@ -1,3 +1,4 @@
+import { LetterMasteryLv } from "../../skills/letter-mastery-lv.type";
 import { UNIQUE_ID_SKILLS } from "../../skills/unique-id-skill.enum";
 import { FighterInitiativeResult, FightPlaybackPayload, FightResult, FightSide } from "../fight.index";
 import { FighterFightSummary } from "../fighter/fighter.summary.types";
@@ -16,7 +17,8 @@ export interface InitialFighterStats {
     skills: {
         skillId: UNIQUE_ID_SKILLS;
         name: string;
-        icon: string;
+        mastery: LetterMasteryLv;
+        description?: string;
     }[];
     resource: {
         hp: {
