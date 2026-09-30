@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.timer_pvp = exports.base_timers_pvm_multiplier = void 0;
+exports.ATTRIBUTE_EFFECTS_CONFIG = exports.timer_pvp = exports.base_timers_pvm_multiplier = void 0;
 /**
  * estos valores sirven para multiplicar el valor que tiene en timer_lv el character
  */
@@ -11,3 +11,21 @@ exports.base_timers_pvm_multiplier = {
 };
 //Este es el timer unico de PVP, siempre es el mismo independientemente del nivel (en milisegundos)
 exports.timer_pvp = 5 * 60 * 1000; //ahora mismo 5 minutos
+/**
+ * Configuración de los efectos que aporta cada atributo del personaje sobre las estadisticas
+ *
+ * Cada atributo modifica una o más stats base del personaje
+ * El valor numérico representa cuánto incrementa esa stat por cada punto del atributo
+ *
+ * Importante:
+ * Unicamente en el atributo de VIT, el valor de hp se interpreta como un porcentaje
+ * @example
+ * - VIT: { hp: 1 }
+ *   - Cada punto de VIT otorga +1% de vida maxima
+ */
+exports.ATTRIBUTE_EFFECTS_CONFIG = {
+    VIT: { hp: 1 },
+    INT: { ap: 1.5, vh: 0.3 },
+    STR: { ad: 2 },
+    DEX: { ad: 1, va: 0.3 },
+};
