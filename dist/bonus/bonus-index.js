@@ -15,6 +15,8 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./bonus-in-item.type"), exports);
+__exportStar(require("./bonus-effect.type"), exports);
+__exportStar(require("./bonus-condition.type"), exports);
 __exportStar(require("./item-bonus-quaility.type"), exports);
 __exportStar(require("./bonusListHelper/bonus-list-full-name.enum"), exports);
 __exportStar(require("./bonusListHelper/bonus.type"), exports);

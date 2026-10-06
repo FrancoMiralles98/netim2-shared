@@ -1,6 +1,5 @@
 import { subTypeEquip } from "../../item/entities-props/equip.type";
-import { ValueBonusType } from "../bonus-in-item.type";
-import type { RoutStatKey } from "../rout-stat-key";
+import type { BonusEffect } from "../bonus-effect.type";
 import { allFullNameBonusList } from "./bonus-list-full-name.enum";
 import { BonusRefKeys } from "./ref-bonus-name.type";
 
@@ -61,28 +60,21 @@ export type Bonus6_7 = {
 /**
  * Representa un bonus completo dentro del sistema.
  *
- * @property name - Información de identificación del bonus.
+ * @property full_name - Nombre visual del bonus mostrado al cliente.
  *
- * @property name.full_name - Nombre visual del bonus mostrado al cliente.
- *
- * @property name.bonus_ref_name - Clave interna utilizada en el código
+ * @property bonus_ref_name - Clave interna utilizada en el código
  * para referenciar el bonus
- *
- * @property name.type_value - Tipo de valor del bonus:
- * - `FLAT` → valor directo
- * - `PORCENTAGE` → valor porcentual
  *
  * @property {BonusCategory} category - Categoría del bonus: `Generic`, `Corrupt` o `Bonus6_7`.
  * @property category.type - Identificador de la categoría: `generic`, `corrupt` o `bonus6_7`.
  * @property {BonusTierLv} category.tier - Nivel del bonus, del 1 al 4.
  * Obligatorio únicamente cuando `category.type` es `generic`.
  *
- * @property {RoutStatKey} rout_stat_key[] - Ruta de la estadística que modifica el bonus.
- * Por ejemplo, `general.hp` o `bonus.daño.critico`.
- *
  * @property {{min: number, max: number}} values - Rango de valores del bonus [mínimo, máximo].
  * 
  * @property {subTypeEquip[]} valid - Tipos de items que pueden tener este bonus (arma, amadura, botas).
+ * @property {BonusEffect[]} effects - Efectos que aplica el bonus sobre estadísticas,
+ * modificadores condicionales o límites. Cada efecto define su destino y operación.
  *
  */
 
@@ -90,9 +82,8 @@ export type Bonus6_7 = {
 export interface BonusType {
   full_name: allFullNameBonusList;
   bonus_ref_name: BonusRefKeys;
-  type_value: ValueBonusType;
   category: BonusCategory;
-  rout_stat_key: RoutStatKey[];
   values: { min: number, max: number };
   valid: subTypeEquip[];
+  effects: BonusEffect[];
 }

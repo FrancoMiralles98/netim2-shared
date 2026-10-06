@@ -1,4 +1,6 @@
 export * from './bonus-in-item.type'
+export * from './bonus-effect.type'
+export * from './bonus-condition.type'
 export * from './item-bonus-quaility.type'
 export * from './bonusListHelper/bonus-list-full-name.enum'
 export * from './bonusListHelper/bonus.type'
