@@ -1,3 +1,4 @@
+import { BonusCategory } from "./bonus-index";
 import { allFullNameBonusList } from "./bonusListHelper/bonus-list-full-name.enum";
 import { BonusRefKeys } from "./bonusListHelper/ref-bonus-name.type";
 /**
@@ -9,6 +10,9 @@ import { BonusRefKeys } from "./bonusListHelper/ref-bonus-name.type";
  *
  * @property bonusFullName Nombre completo del bonus (para mostrar en UI)
  * @property bonusRef Identificador interno del bonus
+ * @property {RoutStatKey} rout_stat_key Ruta de la estadística que modifica el bonus.
+ *  - Ejemplo: `general.hp` o `bonus.daño.critico`.
+ * @property {BonusCategory} category - Categoría del bonus: `Generic`, `Corrupt` o `Bonus6_7`.
  * @property bonusValue Valor del bonus:
  *  - number → valor único
  *  - { min, max } → rango de valores (usado principalmente en armas)
@@ -22,6 +26,7 @@ import { BonusRefKeys } from "./bonusListHelper/ref-bonus-name.type";
  * {
  *   bonusFullName: "Max HP",
  *   bonusRef: "max_hp",
+ *   rout_stat_key: "general.hp",
  *   bonusValue: 500,
  *   bonusValueType: "flat"
  * }
@@ -33,6 +38,7 @@ import { BonusRefKeys } from "./bonusListHelper/ref-bonus-name.type";
 export interface BonusInItem {
     bonusFullName: allFullNameBonusList;
     bonusRef: BonusRefKeys;
+    category: BonusCategory;
     bonusValue: number | {
         min: number;
         max: number;

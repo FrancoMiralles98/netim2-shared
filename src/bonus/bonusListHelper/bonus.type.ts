@@ -1,5 +1,6 @@
 import { subTypeEquip } from "../../item/entities-props/equip.type";
 import { ValueBonusType } from "../bonus-in-item.type";
+import type { RoutStatKey } from "../rout-stat-key";
 import { allFullNameBonusList } from "./bonus-list-full-name.enum";
 import { BonusRefKeys } from "./ref-bonus-name.type";
 
@@ -13,7 +14,7 @@ import { BonusRefKeys } from "./ref-bonus-name.type";
  * - `corrupt` → Bonus especiales corruptos con reglas propias.
  * - `bonus6_7` → Bonus especiales de alto nivel (slots 6 y 7).
  */
-export type BonusCategory = 'generic' | 'corrupt' | 'bonus6_7'
+export type BonusCategory = Generic | Corrupt | Bonus6_7
 
 
 /**
@@ -25,6 +26,36 @@ export type BonusCategory = 'generic' | 'corrupt' | 'bonus6_7'
  * Solo aplica para bonus de categoría `generic`.
  */
 export type BonusTierLv = 1 | 2 | 3 | 4
+
+/**
+ * Categoría de bonus genéricos.
+ *
+ * @property {'generic'} type - Identificador de la categoría.
+ * @property {BonusTierLv} tier - Nivel del bonus, del 1 al 4 cuanto mas alto mejor el bonus, y mas dificl de conseguirlo
+ * 
+ */
+export type Generic = {
+  type: 'generic';
+  tier: BonusTierLv;
+}
+
+/**
+ * Categoría de bonus corruptos.
+ *
+ * @property {'corrupt'} type - Identificador de la categoría.
+ */
+export type Corrupt = {
+  type: 'corrupt';
+}
+
+/**
+ * Categoría de bonus especiales de los slots 6 y 7.
+ *
+ * @property {'bonus6_7'} type - Identificador de la categoría.
+ */
+export type Bonus6_7 = {
+  type: 'bonus6_7';
+}
 
 
 /**
@@ -41,11 +72,14 @@ export type BonusTierLv = 1 | 2 | 3 | 4
  * - `FLAT` → valor directo
  * - `PORCENTAGE` → valor porcentual
  *
- * @property category - Categoría del bonus, determina el tipo de bonus que pertenece
+ * @property {BonusCategory} category - Categoría del bonus: `Generic`, `Corrupt` o `Bonus6_7`.
+ * @property category.type - Identificador de la categoría: `generic`, `corrupt` o `bonus6_7`.
+ * @property {BonusTierLv} category.tier - Nivel del bonus, del 1 al 4.
+ * Obligatorio únicamente cuando `category.type` es `generic`.
  *
- * @property tier - Nivel del bonus (solo para categoría `generic`).
- * Define la calidad del bonus cuanto mas mas dificil es de conseguirlo
- * 
+ * @property {RoutStatKey} rout_stat_key[] - Ruta de la estadística que modifica el bonus.
+ * Por ejemplo, `general.hp` o `bonus.daño.critico`.
+ *
  * @property {{min: number, max: number}} values - Rango de valores del bonus [mínimo, máximo].
  * 
  * @property {subTypeEquip[]} valid - Tipos de items que pueden tener este bonus (arma, amadura, botas).
@@ -54,13 +88,11 @@ export type BonusTierLv = 1 | 2 | 3 | 4
 
 
 export interface BonusType {
-  name: {
-    full_name: allFullNameBonusList;
-    bonus_ref_name: BonusRefKeys;
-    type_value: ValueBonusType;
-  };
+  full_name: allFullNameBonusList;
+  bonus_ref_name: BonusRefKeys;
+  type_value: ValueBonusType;
   category: BonusCategory;
-  tier?: BonusTierLv;
+  rout_stat_key: RoutStatKey[];
   values: { min: number, max: number };
   valid: subTypeEquip[];
 }
