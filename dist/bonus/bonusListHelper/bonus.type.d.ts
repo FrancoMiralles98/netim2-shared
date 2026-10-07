@@ -37,9 +37,13 @@ export type Generic = {
  * Categoría de bonus corruptos.
  *
  * @property {'corrupt'} type - Identificador de la categoría.
+ * @property {'corrupt_item_acc' | 'none'} sub_type - Comportamiento del bonus corrupto:
+ * - `corrupt_item_acc` → El valor del bonus se suma una vez por cada pieza de equipo corrupto equipada.
+ * - `none` → El valor del bonus se aplica una sola vez, y no tiene nigun agregado especial adicional
  */
 export type Corrupt = {
     type: 'corrupt';
+    sub_type: 'corrupt_item_acc' | 'none';
 };
 /**
  * Categoría de bonus especiales de los slots 6 y 7.
@@ -61,6 +65,8 @@ export type Bonus6_7 = {
  * @property category.type - Identificador de la categoría: `generic`, `corrupt` o `bonus6_7`.
  * @property {BonusTierLv} category.tier - Nivel del bonus, del 1 al 4.
  * Obligatorio únicamente cuando `category.type` es `generic`.
+ * @property category.sub_type - Comportamiento del bonus corrupto: `corrupt_item_acc` o `none`.
+ * Obligatorio únicamente cuando `category.type` es `corrupt`.
  *
  * @property {{min: number, max: number}} values - Rango de valores del bonus [mínimo, máximo].
  *
