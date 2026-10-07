@@ -1,4 +1,4 @@
-import { BonusCategory } from "./bonus-index";
+import { BonusCategory, BonusEffect } from "./bonus-index";
 import { allFullNameBonusList } from "./bonusListHelper/bonus-list-full-name.enum";
 import { BonusRefKeys } from "./bonusListHelper/ref-bonus-name.type";
 import type { RoutStatKey } from "./rout-stat-key";
@@ -22,17 +22,6 @@ import type { RoutStatKey } from "./rout-stat-key";
  *  - 'flat' → valor plano
  *  - 'porcentage' → valor porcentual
  * 
- *
- * @example
- * // Bonus plano
- * {
- *   bonusFullName: "Max HP",
- *   bonusRef: "max_hp",
- *   rout_stat_key: "general.hp",
- *   bonusValue: 500,
- *   bonusValueType: "flat"
- * }
- * 
  *  @property "origin" De donde viene el bonus,
  *  random => si es algo alatorio
  *  configured => o es algo implicito del item
@@ -42,7 +31,7 @@ export interface BonusInItem {
   bonusRef: BonusRefKeys;
   category: BonusCategory;
   bonusValue: number | { min: number; max: number };
-  bonusValueType: ValueBonusType;
+  effects: BonusEffect;
   origin: BonusOrigin
 }
 
@@ -75,7 +64,4 @@ export type SpecialCorruptRefBonusNameType = 'add1Slot' | 'add1Level'
  *  - Se muestra sin símbolo adicional
  *  @example "Max HP +500"
  */
-export enum ValueBonusType {
-  PORCENTAGE = 'porcentage',
-  FLAT = 'flat',
-}
+export type ValueBonusType = 'porcentage' | 'flat'

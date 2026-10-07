@@ -73,7 +73,7 @@ export type Bonus6_7 = {
  * @property {{min: number, max: number}} values - Rango de valores del bonus [mínimo, máximo].
  * 
  * @property {subTypeEquip[]} valid - Tipos de items que pueden tener este bonus (arma, amadura, botas).
- * @property {BonusEffect[]} effects - Efectos que aplica el bonus sobre estadísticas,
+ * @property {BonusEffect} effects - Efectos que aplica el bonus sobre estadísticas,
  * modificadores condicionales o límites. Cada efecto define su destino y operación.
  *
  */
@@ -85,5 +85,5 @@ export interface BonusType {
   category: BonusCategory;
   values: { min: number, max: number };
   valid: subTypeEquip[];
-  effects: BonusEffect[];
+  effects: BonusEffect;
 }
