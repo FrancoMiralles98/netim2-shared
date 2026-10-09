@@ -1,7 +1,5 @@
-import { BonusInItem, SpecialCorruptBonus, ValueBonusType } from '../../bonus/bonus-in-item.type';
-import { BonusRefKeys } from '../../bonus/bonusListHelper/ref-bonus-name.type';
+import { BonusInItem } from '../../bonus/bonus-in-item.type';
 import { UpgradeLv } from '../config/general-implicit.type';
-import { subTypeEquip } from './equip.type';
 import { UtilityBaseType } from './utility-base.type';
 /**
  * @description - Hace referencia a los objetos que son de utilidad en este caso las Piedras
@@ -13,8 +11,7 @@ export interface PiedraType extends UtilityBaseType {
     upgradeLv: UpgradeLv;
     upgradeMax: number;
     type_utility: 'piedra';
-    specialCorruptBonus?: SpecialCorruptBonus[];
-    restricted: subTypeEquip[];
+    corruptExplicitBonus: BonusInItem[];
 }
 /**
  * Representa una piedra ya incrustada en un ítem.
@@ -22,25 +19,15 @@ export interface PiedraType extends UtilityBaseType {
  * Contiene tanto la información visual como el bonus que aporta.
  *
  * @property {idItem} - Identificador de la piedra
- * @property {fullItemName} - Nombre completo de la piedra (para mostrar en UI)
+ * @property {name} - Nombre completo de la piedra (para mostrar en UI)
  * @property {upgradeLv} - Nivel de mejora de la piedra
- * @property {fullBonusName} - Nombre completo del bonus que otorga (para mostrar en UI)
- * @property {bonusValue} - Valor del bonus aplicado
- * @property {bonusRef} - Identificador interno del bonus
- * @property {bonusType} - Tipo de valor del bonus:
- *  - 'flat' → valor plano
- *  - 'porcentage' → valor porcentual
- * @property {imgUrl} - Ruta o URL de la imagen de la piedra
  */
 export interface PiedrasInItem {
     idItem: number;
-    fullItemName: string;
+    name: string;
     upgradeLv: number;
-    fullBonusName: string;
-    bonusValue: number;
-    bonusRef: BonusRefKeys;
-    bonusType: ValueBonusType;
-    imgUrl: string;
+    implicitBonus: BonusInItem[];
+    corruptExplicitBonus: BonusInItem[];
 }
 /**
  * @description - Si la piedra falla se añade un tipo diferente de piedra

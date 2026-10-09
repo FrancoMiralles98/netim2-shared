@@ -14,8 +14,7 @@ export interface PiedraType extends UtilityBaseType {
   upgradeLv: UpgradeLv;
   upgradeMax: number;
   type_utility: 'piedra';
-  specialCorruptBonus?: SpecialCorruptBonus[];
-  restricted: subTypeEquip[];
+  corruptExplicitBonus: BonusInItem[];
 }
 
 /**
@@ -24,25 +23,15 @@ export interface PiedraType extends UtilityBaseType {
  * Contiene tanto la información visual como el bonus que aporta.
  *
  * @property {idItem} - Identificador de la piedra
- * @property {fullItemName} - Nombre completo de la piedra (para mostrar en UI)
+ * @property {name} - Nombre completo de la piedra (para mostrar en UI)
  * @property {upgradeLv} - Nivel de mejora de la piedra
- * @property {fullBonusName} - Nombre completo del bonus que otorga (para mostrar en UI)
- * @property {bonusValue} - Valor del bonus aplicado
- * @property {bonusRef} - Identificador interno del bonus
- * @property {bonusType} - Tipo de valor del bonus:
- *  - 'flat' → valor plano
- *  - 'porcentage' → valor porcentual
- * @property {imgUrl} - Ruta o URL de la imagen de la piedra
  */
 export interface PiedrasInItem {
   idItem: number;
-  fullItemName: string;
+  name: string;
   upgradeLv: number;
-  fullBonusName: string;
-  bonusValue: number;
-  bonusRef: BonusRefKeys;
-  bonusType: ValueBonusType;
-  imgUrl: string;
+  implicitBonus: BonusInItem[];
+  corruptExplicitBonus: BonusInItem[];
 }
 
 /**
