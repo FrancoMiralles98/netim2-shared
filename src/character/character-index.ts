@@ -16,3 +16,5 @@ export * from './character-genero.type'
 export * from './character-session.type'
 export * from './character-fight-config.type'
 //Ya en index.ts
+export * from './api/character-equipment-response.type'
+export * from './api/character-equipment-request.type'
