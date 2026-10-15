@@ -32,24 +32,11 @@ export interface BonusInItem {
         min: number;
         max: number;
     };
+    displayFormat: ValueBonusType;
     effects: BonusEffect;
     origin: BonusOrigin;
 }
 export type BonusOrigin = 'configured' | 'random';
-/**
- * Representa un bonus especial corrupto.
- *
- * Estos bonus no tienen valor numérico directo,
- * sino que aplican efectos especiales sobre el ítem.
- *
- * @property nameOfBonus Nombre visible del bonus
- * @property refBonus Identificador del tipo de bonus especial
- */
-export interface SpecialCorruptBonus {
-    nameOfBonus: string;
-    refBonus: SpecialCorruptRefBonusNameType;
-}
-export type SpecialCorruptRefBonusNameType = 'add1Slot' | 'add1Level';
 /**
  * Define cómo se interpreta y muestra el valor de un bonus.
  *

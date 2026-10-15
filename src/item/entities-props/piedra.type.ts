@@ -1,7 +1,5 @@
-import { BonusInItem, SpecialCorruptBonus, ValueBonusType } from '../../bonus/bonus-in-item.type';
-import { BonusRefKeys } from '../../bonus/bonusListHelper/ref-bonus-name.type';
+import { BonusInItem } from '../../bonus/bonus-in-item.type';
 import { UpgradeLv } from '../config/general-implicit.type';
-import { subTypeEquip } from './equip.type';
 import { UtilityBaseType } from './utility-base.type';
 
 /**
@@ -33,14 +31,3 @@ export interface PiedrasInItem {
   implicitBonus: BonusInItem[];
   corruptExplicitBonus: BonusInItem[];
 }
-
-/**
- * @description - Si la piedra falla se añade un tipo diferente de piedra
- * que es la piedra rota que no se pude añadir satisfactoriamente
- * @property {Array}
- *  @property {number} index0 - id de la piedra (como no existe se pone 0)
- *  @property {string} index1 - Nombre de la piedra
- *  @property {string} index2 - Nombre completo del bonus (en este caso sin efecto)
- *  @property {string} index3 - url de la foto de la piedra rota
- */
-export type PiedraRota = [0, 'Trozo de Piedra Rota', 'Sin Efecto', string];

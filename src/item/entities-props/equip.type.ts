@@ -1,4 +1,4 @@
-import { BonusInItem, SpecialCorruptBonus } from "../../bonus/bonus-in-item.type";
+import { BonusInItem } from "../../bonus/bonus-in-item.type";
 import { CharacterRace } from "../../character/character-stats.type";
 import { UpgradeLv } from "../config/general-implicit.type";
 import { ItemBaseType } from "./item-base.type";
@@ -62,7 +62,6 @@ export interface EquipType extends ItemBaseType {
   bonus6_7: BonusInItem[];
   corruptExplicitBonus: BonusInItem[];
   corruptImplicitBonus: BonusInItem[];
-  corruptSpecialBonus: SpecialCorruptBonus[];
 }
 
 export type TypeWeapon =
