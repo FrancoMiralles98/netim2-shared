@@ -1,5 +1,6 @@
 import { subTypeEquip } from "../../item/entities-props/equip.type";
 import type { BonusEffect } from "../bonus-effect.type";
+import { ValueBonusType } from "../bonus-in-item.type";
 import { allFullNameBonusList } from "./bonus-list-full-name.enum";
 import { BonusRefKeys } from "./ref-bonus-name.type";
 /**
@@ -79,6 +80,7 @@ export interface BonusType {
     full_name: allFullNameBonusList;
     bonus_ref_name: BonusRefKeys;
     category: BonusCategory;
+    displayFormat: ValueBonusType;
     values: {
         min: number;
         max: number;
