@@ -17,3 +17,4 @@ export * from './character-session.type';
 export * from './character-fight-config.type';
 export * from './api/character-equipment-response.type';
 export * from './api/character-equipment-request.type';
+export * from './api/character-inventory.type';
