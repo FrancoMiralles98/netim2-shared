@@ -8,4 +8,3 @@ export * from './shared/shared.index';
 export * from './inventory/index-invetory';
 export * from './item/item-index';
 export * from './fight/fight.index';
-export * from './world/world.index';

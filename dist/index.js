@@ -24,4 +24,3 @@ __exportStar(require("./shared/shared.index"), exports);
 __exportStar(require("./inventory/index-invetory"), exports);
 __exportStar(require("./item/item-index"), exports);
 __exportStar(require("./fight/fight.index"), exports);
-__exportStar(require("./world/world.index"), exports);
