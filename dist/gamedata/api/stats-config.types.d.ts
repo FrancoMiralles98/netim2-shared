@@ -5,7 +5,8 @@ export type StatsConfigResponse = {
     SPELL_DODGE_CHANCE_PER_MOVEMENT_SPEED: number;
     CAST_SPEED_COOLDOWN_SCALING_CONFIG: {
         maxReductionPercent: number;
-        halfReductionPoints: number;
+        initialReductionPerPoint: number;
+        decayRate: number;
         maxReductionPoints: number;
     };
     BONUS_EFFECTS_CONFIG: {

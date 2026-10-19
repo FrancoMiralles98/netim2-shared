@@ -12,7 +12,8 @@ export type StatsConfigResponse = {
 
     CAST_SPEED_COOLDOWN_SCALING_CONFIG: {
         maxReductionPercent: number;
-        halfReductionPoints: number;
+        initialReductionPerPoint: number;
+        decayRate: number;
         maxReductionPoints: number;
     };
 
