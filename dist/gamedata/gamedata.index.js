@@ -20,4 +20,5 @@ __exportStar(require("./reinos-names.type"), exports);
 __exportStar(require("./ubication-names.type"), exports);
 __exportStar(require("./zone-names.type"), exports);
 __exportStar(require("./reinos-buff.type"), exports);
+__exportStar(require("./api/stats-config.types"), exports);
 //Ya index.ts
