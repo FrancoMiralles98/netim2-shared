@@ -3,6 +3,7 @@ import type { EquipType, subTypeEquip } from '../../item/entities-props/equip.ty
 import type { Stats } from '../../shared/stats.types';
 import type { Atributos } from '../attributes.types';
 import type { CharacterPersistence } from '../character-persistence.type';
+import { EquipoOptions } from '../equipo-options.type';
 /** Payload de data en la respuesta HTTP; no incluye el personaje completo. */
 export type EquipmentStatsResponse = {
     /** Snapshots completos: reemplazar stats y atributos en el cliente, no sumarlos. */
@@ -40,6 +41,7 @@ export type SelectEquipmentResponse = EquipmentStatsResponse & {
 /** Habilitar slot y reemplazar solo el saldo de la moneda indicada. */
 export type BuyEquipmentSlotResponse = {
     slot: CharacterPersistence['equipo_selected'];
+    equipo_options: EquipoOptions;
 } & ({
     currency: 'yang';
     yang: number;
