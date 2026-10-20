@@ -4,5 +4,5 @@ export * from './reinos-names.type'
 export * from './ubication-names.type'
 export * from './zone-names.type'
 export * from './reinos-buff.type'
-export * from './api/stats-config.types'
+export * from './api/game-config.types'
 //Ya index.ts
