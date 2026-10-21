@@ -13,7 +13,7 @@ export type QuickHealRequest = {
 export type QuickHealResponse = UsePotionResponse & {
     /** Reservas finales de las pociones utilizadas que permanecen en el inventario, esto
      es para pociones con reservas. */
-    updatedPotions: (Pick<InventoryItem, 'id'> & Pick<ReservePotion, 'effect' | 'reserve'>)[];
+    updatedPotions: (Pick<InventoryItem, 'id'> & Pick<ReservePotion, 'resource' | 'reserve'>)[];
 };
 
 export type CharacterQuickHealResult = {
@@ -51,8 +51,8 @@ export type UseReservePotionRequest = {
 export type UseReservePotionResponse = {
     hp: number;
     mana: number;
-    /** Reemplazar los efectos y la reserva con estos valores finales. null si se agotó y eliminó. */
-    updatedPotion: (Pick<InventoryItem, 'id'> & Pick<ReservePotion, 'effect' | 'reserve'>) | null;
+    /** Reemplazar los recursos y la reserva con estos valores finales. null si se agotó y eliminó. */
+    updatedPotion: (Pick<InventoryItem, 'id'> & Pick<ReservePotion, 'resource' | 'reserve'>) | null;
     /** Incluye la eliminación del item cuando su reserva llega a cero. */
     updatedItems: InventoryChangeResult[];
 };
