@@ -18,3 +18,4 @@ export * from './character-fight-config.type';
 export * from './api/character-equipment-response.type';
 export * from './api/character-equipment-request.type';
 export * from './api/character-inventory.type';
+export * from './api/character-potion.types';

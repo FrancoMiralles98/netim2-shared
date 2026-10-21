@@ -35,3 +35,4 @@ __exportStar(require("./character-fight-config.type"), exports);
 __exportStar(require("./api/character-equipment-response.type"), exports);
 __exportStar(require("./api/character-equipment-request.type"), exports);
 __exportStar(require("./api/character-inventory.type"), exports);
+__exportStar(require("./api/character-potion.types"), exports);
