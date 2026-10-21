@@ -1,6 +1,6 @@
 import { InventoryItem } from "../../inventory/inventory-item.type";
 import { InventoryChangeResult } from "../../inventory/item-to-update.types";
-import { PotionEffect } from "../../item/item-index";
+import type { ReservePotion } from "../../item/item-index";
 import { CharacterPersistence } from "../character-persistence.type";
 export type QuickHealResource = 'hp' | 'mana';
 /** Contratos provisorios para la futura entrada HTTP. El orden indica prioridad entre recursos. */
@@ -10,10 +10,7 @@ export type QuickHealRequest = {
 export type QuickHealResponse = UsePotionResponse & {
     /** Reservas finales de las pociones utilizadas que permanecen en el inventario, esto
      es para pociones con reservas. */
-    updatedPotions: {
-        id: InventoryItem['id'];
-        effect: PotionEffect[];
-    }[];
+    updatedPotions: (Pick<InventoryItem, 'id'> & Pick<ReservePotion, 'effect' | 'reserve'>)[];
 };
 export type CharacterQuickHealResult = {
     character: CharacterPersistence;
@@ -43,12 +40,9 @@ export type UseReservePotionRequest = {
 export type UseReservePotionResponse = {
     hp: number;
     mana: number;
-    /** Reemplazar los efectos del item con estos valores finales. null si se agotó y eliminó. */
-    updatedPotion: {
-        id: InventoryItem['id'];
-        effect: PotionEffect[];
-    } | null;
-    /** Incluye la eliminación del item cuando todas sus reservas llegan a cero. */
+    /** Reemplazar los efectos y la reserva con estos valores finales. null si se agotó y eliminó. */
+    updatedPotion: (Pick<InventoryItem, 'id'> & Pick<ReservePotion, 'effect' | 'reserve'>) | null;
+    /** Incluye la eliminación del item cuando su reserva llega a cero. */
     updatedItems: InventoryChangeResult[];
 };
 export type CharacterReservePotionUseResult = {
