@@ -7,10 +7,42 @@ import { UtilityBaseType } from "./utility-base.type";
  * Un cofre puede contener una o más recompensas configuradas y define
  * cómo deben entregarse al ser abierto.
  */
-export interface ChestType extends UtilityBaseType {
+export type ChestType = RandomChest | AllChest | PickChest;
+
+/** Propiedades comunes a todos los cofres. */
+export interface ChestBase extends UtilityBaseType {
     type_utility: 'chest';
-    rewardConfig: RewardConfig
     rewards: Reward[]
+}
+
+/**
+ * Cofre que entrega una única opción elegida al azar.
+ *
+ * @property {'random'} rewardConfig - Selección aleatoria según el peso de cada recompensa.
+ */
+export interface RandomChest extends ChestBase {
+    rewardConfig: 'random';
+}
+
+/**
+ * Cofre que entrega todas las opciones configuradas.
+ *
+ * @property {'all'} rewardConfig - Entrega de todas las recompensas, sin selección por peso.
+ */
+export interface AllChest extends ChestBase {
+    rewardConfig: 'all';
+}
+
+/**
+ * Cofre que permite al jugador elegir una cantidad de opciones.
+ *
+ * @property {'pick'} rewardConfig - Selección de recompensas por el jugador, sin sorteo por peso.
+ * @property {number} pickCount - Cantidad de opciones distintas que debe elegir el jugador.
+ * Debe ser un entero entre 1 y rewards.length; esta restricción se valida en el servidor.
+ */
+export interface PickChest extends ChestBase {
+    rewardConfig: 'pick';
+    pickCount: number;
 }
 
 /**
@@ -18,8 +50,9 @@ export interface ChestType extends UtilityBaseType {
  *
  * - `random`: selecciona una única recompensa utilizando los pesos configurados.
  * - `all`: entrega todas las recompensas configuradas.
+ * - `pick`: permite al jugador elegir pickCount opciones distintas.
  */
-export type RewardConfig = 'random' | 'all'
+export type RewardConfig = ChestType['rewardConfig']
 
 
 export type Reward = ItemReward | ResourceReward
