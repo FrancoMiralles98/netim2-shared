@@ -26,6 +26,9 @@ export type GameConfigResponse = {
     equipment: {
         slots: EquipmentSlotConfig[];
     };
+    buff: {
+        max_active_buff: number
+    }
 };
 
 /**
