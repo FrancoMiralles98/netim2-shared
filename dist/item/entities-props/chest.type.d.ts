@@ -7,7 +7,9 @@ import { UtilityBaseType } from "./utility-base.type";
  * cómo deben entregarse al ser abierto.
  */
 export type ChestType = RandomChest | AllChest | PickChest;
-/** Propiedades comunes a todos los cofres. */
+/**
+ * Propiedades comunes a todos los cofres.
+ */
 export interface ChestBase extends UtilityBaseType {
     type_utility: 'chest';
     rewards: Reward[];
@@ -16,9 +18,12 @@ export interface ChestBase extends UtilityBaseType {
  * Cofre que entrega una única opción elegida al azar.
  *
  * @property {'random'} rewardConfig - Selección aleatoria según el peso de cada recompensa.
+ *  * @property {boolean} allowBulkOpen - Indica si se permite abrir varias unidades del cofre
+ * en una misma operación. Si es false, solo se permite abrir una unidad por operación.
  */
 export interface RandomChest extends ChestBase {
     rewardConfig: 'random';
+    allowBulkOpen: boolean;
 }
 /**
  * Cofre que entrega todas las opciones configuradas.
