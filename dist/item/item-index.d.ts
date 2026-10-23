@@ -12,3 +12,4 @@ export * from './entities-props/pocion.type';
 export * from './entities-props/utility.type';
 export * from './iditems/id-item-list.type';
 export * from './item-dto';
+export * from './api/item-details.types';

@@ -28,4 +28,5 @@ __exportStar(require("./entities-props/pocion.type"), exports);
 __exportStar(require("./entities-props/utility.type"), exports);
 __exportStar(require("./iditems/id-item-list.type"), exports);
 __exportStar(require("./item-dto"), exports);
+__exportStar(require("./api/item-details.types"), exports);
 //Ya en index.ts
