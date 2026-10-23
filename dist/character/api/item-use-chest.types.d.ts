@@ -36,3 +36,14 @@ export type CharacterOpenChestResult = {
     character: CharacterPersistence;
     response: OpenChestResponse;
 };
+export type OpenChestBulkRequest = {
+    itemId: InventoryItem['id'];
+    quantity: number;
+};
+export type OpenChestBulkResponse = OpenChestResponse & {
+    openedQuantity: number;
+};
+export type CharacterOpenChestBulkResult = {
+    character: CharacterPersistence;
+    response: OpenChestBulkResponse;
+};
