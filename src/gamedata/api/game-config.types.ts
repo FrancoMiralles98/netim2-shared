@@ -3,6 +3,7 @@ import type { CharacterPersistence } from "../../character/character-persistence
 
 /** Configuración pública del juego enviada por el backend al cliente. */
 export type GameConfigResponse = {
+    character: CharacterConfig;
     attributes: {
         /** Aporte a las estadísticas por cada punto de atributo. */
         effects: Record<AttributesRefKeys, Partial<Record<BonusRefKeys, number>>>;
@@ -29,6 +30,26 @@ export type GameConfigResponse = {
     buff: {
         max_active_buff: number
     }
+};
+
+/** Configuración correspondiente al personaje que recibe la respuesta. */
+export type CharacterConfig = {
+    attributeCaps: CharacterAttributeCaps;
+};
+
+/** Límites de VIT, INT, STR y DEX para una raza o especialidad concreta. */
+export type AttributeCaps = Record<AttributesRefKeys, number>;
+
+/**
+ * Límites de atributos de la raza y, cuando corresponda, de la especialidad del personaje.
+ *
+ * @property {AttributeCaps} race - Caps de la raza del personaje, sin incluir las demás razas.
+ * @property {AttributeCaps} [speciality] - Caps de su especialidad. Se omite si el personaje
+ * todavía no tiene una especialidad; no requiere incluir las demás especialidades.
+ */
+export type CharacterAttributeCaps = {
+    race: AttributeCaps;
+    speciality?: AttributeCaps;
 };
 
 /**
