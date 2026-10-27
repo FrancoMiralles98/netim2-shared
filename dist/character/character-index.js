@@ -38,3 +38,4 @@ __exportStar(require("./api/character-inventory.type"), exports);
 __exportStar(require("./api/character-potion.types"), exports);
 __exportStar(require("./api/item-use-buff.types"), exports);
 __exportStar(require("./api/item-use-chest.types"), exports);
+__exportStar(require("./api/character-attribute.types"), exports);
