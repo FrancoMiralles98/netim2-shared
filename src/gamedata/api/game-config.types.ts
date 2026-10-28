@@ -1,5 +1,7 @@
 import type { AttributesRefKeys, BonusRefKeys } from "../../bonus/bonus-index";
 import type { CharacterPersistence } from "../../character/character-persistence.type";
+import type { CharacterSpeciality } from "../../character/character-stats.type";
+import type { UNIQUE_ID_SKILLS } from "../../skills/unique-id-skill.enum";
 
 /** Configuración pública del juego enviada por el backend al cliente. */
 export type GameConfigResponse = {
@@ -33,23 +35,36 @@ export type GameConfigResponse = {
 };
 
 /** Configuración correspondiente al personaje que recibe la respuesta. */
-export type CharacterConfig = {
-    attributeCaps: CharacterAttributeCaps;
+export type CharacterConfig = CharacterAttributeCaps & {
+    /** Habilidades de las especialidades incluidas en la configuración. */
+    idSkillsSpeciality: SpecialitySkillsConfig[];
 };
 
 /** Límites de VIT, INT, STR y DEX para una raza o especialidad concreta. */
 export type AttributeCaps = Record<AttributesRefKeys, number>;
 
 /**
- * Límites de atributos de la raza y, cuando corresponda, de la especialidad del personaje.
+ * Límites de atributos de la raza y de las especialidades incluidas en la configuración.
  *
  * @property {AttributeCaps} race - Caps de la raza del personaje, sin incluir las demás razas.
- * @property {AttributeCaps} [speciality] - Caps de su especialidad. Se omite si el personaje
- * todavía no tiene una especialidad; no requiere incluir las demás especialidades.
+ * @property {SpecialityAttributeCaps[]} speciality - Caps por especialidad. Puede ser una lista vacía
+ * y no requiere incluir todas las especialidades del juego.
  */
 export type CharacterAttributeCaps = {
     race: AttributeCaps;
-    speciality?: AttributeCaps;
+    speciality: SpecialityAttributeCaps[];
+};
+
+/** Caps de atributos correspondientes a una especialidad concreta. */
+export type SpecialityAttributeCaps = {
+    specialidad: CharacterSpeciality;
+    caps: AttributeCaps;
+};
+
+/** IDs de las habilidades correspondientes a una especialidad concreta. */
+export type SpecialitySkillsConfig = {
+    specialidad: CharacterSpeciality;
+    idSkills: UNIQUE_ID_SKILLS[];
 };
 
 /**
