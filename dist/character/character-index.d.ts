@@ -22,3 +22,4 @@ export * from './api/character-potion.types';
 export * from './api/item-use-buff.types';
 export * from './api/item-use-chest.types';
 export * from './api/character-attribute.types';
+export * from './api/character-skill.types';
