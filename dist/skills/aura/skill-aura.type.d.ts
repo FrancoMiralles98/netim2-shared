@@ -1,6 +1,7 @@
 import { AuraTag } from "./aura-tags.types";
 import { SkillBase } from "../skill-base.type";
 import { BonusRefKeys, RoutStatKey } from "../../bonus/bonus-index";
+import { SkillAuraScaling } from "../scaling/skill-aura-scaling.type";
 /**
  * Representa una habilidad de tipo aura.
  *
@@ -32,6 +33,7 @@ export interface SkillAura extends SkillBase {
     duration?: DurationConfig;
     statsModifiers: StatsModifiers[];
     tags: AuraTag[];
+    escalado: SkillAuraScaling;
 }
 /**
  * Configuración de duración posible para una aura.

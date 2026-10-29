@@ -36,7 +36,7 @@ export interface SkillBase {
     nombre: string;
     description: string;
     mana: SkillManaCost
-    cd: SkillCooldownConfig
+    cd: SkillCooldownConfig;
 }
 
 /**

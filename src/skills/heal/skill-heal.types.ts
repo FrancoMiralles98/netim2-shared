@@ -1,4 +1,5 @@
 import { TypeWeapon } from "../../item/entities-props/equip.type";
+import { SkillHealScaling } from "../scaling/skill-heal-scaling.types";
 import { SkillBase } from "../skill-base.type";
 
 export interface SkillHeal extends SkillBase {
@@ -6,6 +7,7 @@ export interface SkillHeal extends SkillBase {
     weaponRestricted: TypeWeapon[]
     components: SkillHealComponents[]
     flags?: SkillHealFlags
+    escalado: SkillHealScaling
 }
 
 

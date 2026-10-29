@@ -1,4 +1,4 @@
-import { CharacterAttribute } from "../../character/character-stats.type";
+import { AttributesRefKeys } from "../../bonus/bonus-index";
 /**
  *  @property {Partial<Record<CharacterAttribute, number>>} escaladoAtributos
  * Porcentaje de los atributos del personaje que se utilizan para potenciar los buffos.
@@ -16,4 +16,4 @@ import { CharacterAttribute } from "../../character/character-stats.type";
  * → se toma un 10% de INT (10)
  *
  */
-export type EscaladoAtributos = Partial<Record<CharacterAttribute, number>>;
+export type EscaladoAtributos = Partial<Record<AttributesRefKeys, number>>;
