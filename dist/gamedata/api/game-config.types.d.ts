@@ -1,6 +1,7 @@
 import type { AttributesRefKeys, BonusRefKeys } from "../../bonus/bonus-index";
 import type { CharacterPersistence } from "../../character/character-persistence.type";
 import type { CharacterSpeciality } from "../../character/character-stats.type";
+import { ActiveStatusEffectId, StatusEffectConfig } from "../../fight/fight.index";
 import type { UNIQUE_ID_SKILLS } from "../../skills/unique-id-skill.enum";
 /** Configuración pública del juego enviada por el backend al cliente. */
 export type GameConfigResponse = {
@@ -24,6 +25,7 @@ export type GameConfigResponse = {
             penetracion_porcentual_defense: number;
             reflect_porcent_dmg: number;
         };
+        statusEffect: Record<ActiveStatusEffectId, StatusEffectConfig>;
     };
     equipment: {
         slots: EquipmentSlotConfig[];
