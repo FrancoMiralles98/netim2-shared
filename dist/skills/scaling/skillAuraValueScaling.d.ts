@@ -11,6 +11,7 @@ export interface AuraSkillValueScaling {
     cd: SkillCooldownScaling;
     /** Duración explícita: turnos escalables o mantenimiento hasta quedarse sin maná. */
     duration: SkillDurationScaling;
+    /** Cada modificador indica su destino, operación y valor escalable. */
     statsModifiers: readonly SkillStatModifierScaling[];
     tags: readonly AuraTag[];
 }

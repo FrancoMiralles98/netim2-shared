@@ -14,13 +14,8 @@ import type { DamageSkillValueScaling } from "../scaling/skillDamageValueScaling
  * @extends SkillBase
  *
  * @remarks
- * Una skill de daño puede estar compuesta por uno o varios componentes.
- * Cada componente puede tener su propio tipo de daño, rango, tags, flags,
- * escalados, efectos de estado y mecánicas especiales.
- *
- * Esto permite representar habilidades simples, físicas, mágicas, mixtas,
- * con daño verdadero o con varios golpes sin tener que crear una estructura
- * distinta para cada caso.
+ * La habilidad usa un único componente con su rango, tipo de daño y reglas.
+ * Los golpes adicionales se controlan mediante hitModifiers y usan ese mismo componente.
  *
  * @property {'damage'} type
  * Tipo discriminante de la skill.
@@ -29,20 +24,21 @@ import type { DamageSkillValueScaling } from "../scaling/skillDamageValueScaling
  * Las armas que esta habilitadas para que pueda usar la habilidad, si no se añade
  * se puede usar la habilidad sin tener un arma equipada
  *
- * @property {SkillDamageComponents[]} components
- * Lista de componentes de daño que componen la habilidad.
+ * @property {SkillDamageComponents} components
+ * Único componente de daño de la habilidad.
  *
- * @property {SkillHitModifier[]} [hitModifiers]
+ * @property {SkillHitModifier} [hitModifiers]
  * Modificadores opcionales que alteran la cantidad de golpes generados
  * por la skill.
  *
- * @property {SkillDamageModifier[]} [damageModifiers]
- * Modificadores opcionales que alteran el daño de cada golpe o componente.
+ * @property {SkillDamageModifier} [damageModifiers]
+ * Modificador opcional que altera el daño de cada golpe.
+ * @property {DamageSkillValueScaling} escalado - Configuración para calcular los valores de la habilidad.
  */
 export interface SkillDamage extends SkillBase {
     type: 'damage';
     weaponRestricted: TypeWeapon[];
-    components: SkillDamageComponents[];
+    components: SkillDamageComponents;
     hitModifiers?: SkillHitModifier;
     damageModifiers?: SkillDamageModifier;
     statusEffects?: Partial<Record<StatusEffectsKeys, number>>;
@@ -50,12 +46,7 @@ export interface SkillDamage extends SkillBase {
     escalado: DamageSkillValueScaling;
 }
 /**
- * Representa un componente individual de daño dentro de una skill.
- *
- * @remarks
- * Cada componente se calcula de forma independiente.
- * Esto permite que una misma skill tenga, por ejemplo, una parte física
- * y una parte mágica con reglas distintas.
+ * Componente único de daño utilizado por los golpes de una habilidad.
  *
  * @property {{min:number,max:number}} range
  * Rango de daño del componente.
@@ -81,14 +72,6 @@ export interface SkillDamage extends SkillBase {
  * @property {StatsScaling[]} [statsScaling]
  * Escalados adicionales por stats del luchador.
  *
- * @property {Partial<Record<StatusEffectsKeys, number>>} [statusEffects]
- * Efectos de estado que este componente puede aplicar.
- *
- * El valor normalmente representa la chance de aplicar el efecto,
- * expresada en porcentaje.
- *
- * @property {Partial<Record<MechanicsEffectsKeys, number>>} [mechanicsEffects]
- * Mecánicas especiales que este componente puede aplicar.
  */
 export interface SkillDamageComponents {
     range: {

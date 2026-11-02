@@ -11,9 +11,11 @@ export interface BuffNextSkillDamageMultiplierScaling extends SkillScalingUnlock
     type: 'next_skill_damage_multiplier';
     /** Al menos una habilidad habilitada; los IDs no modifican la progresión del valor. */
     allowedSkillIds: readonly [UNIQUE_ID_SKILLS, ...UNIQUE_ID_SKILLS[]];
+    /** Factor de daño: 1 conserva el daño y 2 lo duplica. */
     multiplier: SkillValueScaling;
     /** Usos iniciales enteros >= 1; remainingUses pertenece al estado de combate. */
     uses: SkillValueScaling;
+    /** Evento que consume un uso del efecto. */
     consumeOn: BuffConsumeTrigger;
     description?: string;
 }
@@ -31,7 +33,9 @@ export interface BuffSkillValueScaling {
     mana: SkillManaCostScaling;
     cd: SkillCooldownScaling;
     duration: SkillDurationScaling;
+    /** Modificadores de estadísticas activos mientras dura el buff. */
     statsModifiers: readonly SkillStatModifierScaling[];
+    /** Efectos consumibles y sus reglas de uso. */
     effects: readonly BuffEffectValueScaling[];
     tags?: readonly BuffTags[];
 }

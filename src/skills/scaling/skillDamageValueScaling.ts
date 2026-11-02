@@ -11,6 +11,7 @@ import type { SkillValueScaling } from '../shared/skill-value-scaling.types';
 
 /** Un componente AD/AP/verdadero; no representa un golpe adicional. */
 export interface DamageComponentScaling {
+    /** Tipo de daño usado para resolver mitigaciones. */
     damageType: DamageType;
     /** Mínimo y máximo obligatorios; cada extremo admite daño base y aportes por stats/atributos. */
     damage: SkillDamageValueScaling;
@@ -27,9 +28,11 @@ export interface DamageSkillValueScaling {
     type: 'damage';
     mana: SkillManaCostScaling;
     cd: SkillCooldownScaling;
-    /** Al menos un componente; permite daño físico, mágico, verdadero o híbrido. */
-    components: readonly [DamageComponentScaling, ...DamageComponentScaling[]];
+    /** Un único componente de daño, compartido por todos los golpes de la habilidad. */
+    components: DamageComponentScaling;
+    /** Escalado de la cantidad de golpes y su multiplicador por golpe. */
     hitModifiers?: SkillHitModifierScaling;
+    /** Escalado de multiplicadores de daño por probabilidad, pesos o condiciones. */
     damageModifiers?: SkillDamageModifierScaling;
     /** Aplicaciones de efectos de la habilidad; su frecuencia la define el resolver de combate. */
     statusEffects?: SkillStatusEffectsScaling;

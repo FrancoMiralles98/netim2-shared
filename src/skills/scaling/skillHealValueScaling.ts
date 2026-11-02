@@ -10,7 +10,7 @@ export interface HealComponentScaling {
 }
 
 /**
- * Configuración completa de una habilidad de curación con uno o más componentes.
+ * Configuración de una habilidad con un único componente de curación.
  * Usa reglas de curación, no flags de bloqueo/evasión propias de daño.
  * No contiene recursos actuales, resultados calculados ni estado de combate.
  */
@@ -18,6 +18,8 @@ export interface HealSkillValueScaling {
     type: 'heal';
     mana: SkillManaCostScaling;
     cd: SkillCooldownScaling;
-    components: readonly [HealComponentScaling, ...HealComponentScaling[]];
+    /** Rango y etiquetas de la curación; sus valores se calculan con el contexto del personaje. */
+    components: HealComponentScaling;
+    /** Reglas de crítico aplicables a la curación calculada. */
     flags?: SkillHealFlags;
 }
