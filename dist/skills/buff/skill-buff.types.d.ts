@@ -1,4 +1,4 @@
-import { SkillBuffScaling } from "../scaling/skill-buff-scaling.type";
+import type { BuffSkillValueScaling } from "../scaling/skillBuffValueScaling";
 import { SkillBase } from "../skill-base.type";
 import { DurationConfig, StatsModifiers, UNIQUE_ID_SKILLS } from "../skill-index";
 export interface SkillBuff extends SkillBase {
@@ -7,7 +7,7 @@ export interface SkillBuff extends SkillBase {
     tags?: BuffTags[];
     effects: SkillBuffEffect[];
     stats: StatsModifiers[];
-    escalado: SkillBuffScaling;
+    escalado: BuffSkillValueScaling;
 }
 export type BuffTags = 'buff' | 'offensive' | 'defensive' | 'skill';
 export interface SkillBuffEffect {

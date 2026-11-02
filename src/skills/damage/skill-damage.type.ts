@@ -7,7 +7,7 @@ import { SkillDamageFlags } from "./skill-damage-tags.type";
 import { StatusEffectsKeys } from "./status-effects.type";
 import { SkillBase } from "../skill-base.type";
 import { TypeWeapon } from "../../item/entities-props/equip.type";
-import { SkillDamageScaling } from "../scaling/skill-damage-scaling.type";
+import type { DamageSkillValueScaling } from "../scaling/skillDamageValueScaling";
 
 /**
  * Representa una habilidad de daño.
@@ -48,7 +48,7 @@ export interface SkillDamage extends SkillBase {
     damageModifiers?: SkillDamageModifier;
     statusEffects?: Partial<Record<StatusEffectsKeys, number>>
     mechanicsEffects?: Partial<Record<MechanicsEffectsKeys, number>>
-    escalado: SkillDamageScaling
+    escalado: DamageSkillValueScaling
 }
 
 /**
