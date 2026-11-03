@@ -15,6 +15,8 @@ export type UpgradeCharacterSkillResponse = {
     /** Saldos finales de los ítems consumidos; sin cantidad se elimina la instancia.
      * Lista vacía si la mejora no consumió ítems. */
     updatedItems: InventoryChangeResult[];
+    /** Puntos de habilidad restantes después de la mejora; reemplazan el saldo del cliente. */
+    puntos_habilidad: number;
     /** Habilidad en el siguiente nivel; null si alcanzó el nivel máximo. */
     next: SkillType | null;
     /** Costo de la siguiente mejora; null si no existe o aún no está configurado. */
