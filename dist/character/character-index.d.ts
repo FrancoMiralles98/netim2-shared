@@ -24,3 +24,4 @@ export * from './api/item-use-chest.types';
 export * from './api/character-attribute.types';
 export * from './api/character-skill.types';
 export * from './api/select-character-speciality.types';
+export * from './api/skill-upgrade-preview.types';
