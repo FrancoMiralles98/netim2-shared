@@ -40,3 +40,4 @@ __exportStar(require("./api/item-use-buff.types"), exports);
 __exportStar(require("./api/item-use-chest.types"), exports);
 __exportStar(require("./api/character-attribute.types"), exports);
 __exportStar(require("./api/character-skill.types"), exports);
+__exportStar(require("./api/select-character-speciality.types"), exports);
