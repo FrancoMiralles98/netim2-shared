@@ -4,6 +4,7 @@ import type { UpgradeLv } from '../item/config/general-implicit.type';
 import type { IdItemList } from '../item/iditems/id-item-list.type';
 import type { BuffoIdItem } from '../item/iditems/miscs/buffo-id-item.enum';
 import type { PiedraIdItem } from '../item/iditems/miscs/piedra-id-item.enum';
+import type { ItemDTO } from '../item/item-dto';
 import type { IdMobList } from '../mob/id-mob-list.enum';
 import type { EnemyType } from '../mob/mobProps/enemie-type.type';
 import type { UNIQUE_ID_SKILLS } from '../skills/unique-id-skill.enum';
@@ -122,6 +123,16 @@ export type MissionReward =
     | { type: 'yang'; amount: number }
     | { type: 'exp'; amount: number }
     | { type: 'item'; itemId: IdItemList; quantity: number; upgradeLv?: UpgradeLv };
+
+/** Recompensa para el detalle de la misión, con la vista previa completa del ítem si corresponde. */
+export type MissionRewardDetail =
+    | Exclude<MissionReward, { type: 'item' }>
+    | (Extract<MissionReward, { type: 'item' }> & { item: ItemDTO });
+
+/** Respuesta del detalle de una misión con los datos de sus recompensas listos para mostrar. */
+export type MissionDetailResponse = Omit<MissionDefinition, 'rewards'> & {
+    rewards: readonly MissionRewardDetail[];
+};
 
 /** Personaje o lugar del mundo al que está asociada la misión. */
 export type MissionOwner =
