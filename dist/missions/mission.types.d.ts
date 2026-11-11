@@ -67,6 +67,9 @@ export type CollectObjective = ObjectiveBase & {
 });
 /** Evento de juego que cuenta para un objetivo de acción, con filtros opcionales según el evento. */
 export type MissionAction = {
+    /** Texto breve para mostrar la acción en el detalle de la misión. */
+    shortDescription?: string;
+} & ({
     event: 'attribute_point_gained';
 } | {
     event: 'attribute_point_allocated';
@@ -107,7 +110,7 @@ export type MissionAction = {
     minLevel?: number;
 } | {
     event: 'fight_completed';
-};
+});
 /** Cuenta las veces que el personaje realiza la acción especificada. */
 export interface ActionObjective extends ObjectiveBase {
     type: 'action';
