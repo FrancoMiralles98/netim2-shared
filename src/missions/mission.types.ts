@@ -133,9 +133,23 @@ export type MissionRewardDetail =
     | Exclude<MissionReward, { type: 'item' }>
     | (Extract<MissionReward, { type: 'item' }> & { item: ItemDTO });
 
-/** Respuesta del detalle de una misión con los datos de sus recompensas listos para mostrar. */
-export type MissionDetailResponse = Omit<MissionDefinition, 'rewards'> & {
+/** Objetivo para el detalle de la misión, con nombres de ítems o enemigos cuando corresponda. */
+export type MissionObjectiveDetail =
+    | (CollectObjective & { itemName: string })
+    | (HuntObjective & {
+        mobs?: readonly { idMob: IdMobList; name: string }[];
+    })
+    | ActionObjective;
+
+/** Paso con los datos de sus objetivos listos para mostrar. */
+export type MissionStepDetail = Omit<MissionStep, 'objectives'> & {
+    objectives: readonly MissionObjectiveDetail[];
+};
+
+/** Respuesta del detalle de una misión con sus objetivos y recompensas listos para mostrar. */
+export type MissionDetailResponse = Omit<MissionDefinition, 'rewards' | 'steps'> & {
     rewards: readonly MissionRewardDetail[];
+    steps: readonly [MissionStepDetail, ...MissionStepDetail[]];
 };
 
 /** Personaje o lugar del mundo al que está asociada la misión. */
