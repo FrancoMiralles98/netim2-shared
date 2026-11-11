@@ -1,3 +1,4 @@
+/** Identificadores de catálogo usados por definiciones, requisitos y progreso. */
 export declare enum IdMissionsList {
     MISION_DE_CAZA_1 = 1,
     MISION_DE_CAZA_2 = 2,

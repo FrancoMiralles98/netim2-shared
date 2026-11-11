@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.IdMissionsList = void 0;
+/** Identificadores de catálogo usados por definiciones, requisitos y progreso. */
 var IdMissionsList;
 (function (IdMissionsList) {
     IdMissionsList[IdMissionsList["MISION_DE_CAZA_1"] = 1] = "MISION_DE_CAZA_1";

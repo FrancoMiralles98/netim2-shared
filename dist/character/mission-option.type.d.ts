@@ -1,14 +1,9 @@
-import { ActionMissionProgress } from "../missions/action-mission.type";
-import { CollectMissionProgress } from "../missions/collect-mission.type";
-import { HuntMissionProgress } from "../missions/hunt-mission.type";
-import { IdMissionsList } from "../missions/idMissions/id-mission-list.enum";
-import { TypeMission } from "../missions/mission-base.type";
+import type { IdMissionsList } from '../missions/idMissions/id-mission-list.enum';
+import type { MissionProgress } from '../missions/mission.types';
+/** Estado de misiones guardado en el personaje. */
 export interface MissionOption {
+    /** IDs de misiones cuya recompensa ya fue cobrada. */
     idMissionsDone: IdMissionsList[];
-    missionsInProgress: MissionInCharacter[];
-}
-export interface MissionInCharacter {
-    idMission: IdMissionsList;
-    missionProgress: CollectMissionProgress | HuntMissionProgress | ActionMissionProgress;
-    missionType: TypeMission;
+    /** Intentos sin cobrar, con un solo registro por misión. */
+    missionsInProgress: MissionProgress[];
 }
