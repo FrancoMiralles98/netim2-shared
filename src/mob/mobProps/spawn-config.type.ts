@@ -9,16 +9,25 @@ import { MobType } from "./mob.type";
  *
  * @property canSpawn - Indica si este mob tiene la capacidad de spawnear otros mobs.
  *
- * @property spawnMobIds - Lista de IDs de mobs que este mob puede generar.
+
+ */
+export type SpawnConfig = CanSpawn | CantSpawn
+
+/**
+ *  * @property spawnMobIds - Lista de IDs de mobs que este mob puede generar.
  * Estos IDs se utilizan como referencia para crear las instancias correspondientes.
  *
  * @property mobsSpawned - Instancias de mobs generadas
  *
  * @property spawnCount - Cantidad de mobs que se generarán en el spawn.
  */
-export interface SpawnConfig {
-    canSpawn: boolean;
+export interface CanSpawn {
+    canSpawn: true,
     spawnMobIds: IdMobList[];
     mobsSpawned: MobType[];
     spawnCount: number;
+}
+
+export interface CantSpawn {
+    canSpawn: false,
 }

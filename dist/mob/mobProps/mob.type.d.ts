@@ -1,16 +1,15 @@
 import { SpawnConfig } from "./spawn-config.type";
 import { IdMobList } from "../id-mob-list.enum";
 import { MobRace } from "./mob-race.type";
-import { SpecificDrop } from "./drop-config.type";
 import { MobDifficulty } from "./mob-difficult.type";
 import { EnemyType } from "./enemie-type.type";
 import { TypeWeapon } from "../../item/entities-props/equip.type";
-import { CharacterSpeciality } from "../../character/character-stats.type";
 import { AllTargetType } from "../../gamedata/all-races.type";
 import { UbicationNames } from "../../gamedata/ubication-names.type";
 import { SkillType } from "../../skills/skill-type";
 import { Stats } from "../../shared/stats.types";
 import { FightConfig } from "../../character/character-fight-config.type";
+import { IdItemList } from "../../item/item-index";
 /**
  * Representa la estructura completa de un mob
  *
@@ -65,7 +64,6 @@ import { FightConfig } from "../../character/character-fight-config.type";
 export interface MobType {
     nombre: string;
     lv: number;
-    img: string;
     ubication: UbicationNames;
     dificultad: MobDifficulty;
     spawnConfig: SpawnConfig;
@@ -83,9 +81,8 @@ export interface MobType {
     raza: MobRace;
     target_type: AllTargetType;
     enemie_type: EnemyType;
-    especialidad: CharacterSpeciality;
-    type_weapon: TypeWeapon;
-    specific_drop: SpecificDrop[];
+    type_weapon?: TypeWeapon;
+    specific_drop: IdItemList[];
     discovery: number;
     fightConfig: FightConfig;
 }
