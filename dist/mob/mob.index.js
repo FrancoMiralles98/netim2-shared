@@ -15,6 +15,8 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./id-mob-list.enum"), exports);
+__exportStar(require("./mob-summary.type"), exports);
+__exportStar(require("./api/mob-api.types"), exports);
 __exportStar(require("./mobProps/drop-config.type"), exports);
 __exportStar(require("./mobProps/enemie-type.type"), exports);
 __exportStar(require("./mobProps/mob-core-data.type"), exports);

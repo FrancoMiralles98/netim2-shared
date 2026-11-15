@@ -1,5 +1,7 @@
 
 export * from './id-mob-list.enum'
+export * from './mob-summary.type'
+export * from './api/mob-api.types'
 export * from './mobProps/drop-config.type'
 export * from './mobProps/enemie-type.type'
 export * from './mobProps/mob-core-data.type'
