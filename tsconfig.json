@@ -4,6 +4,7 @@
     "module": "CommonJS",
     "moduleResolution": "bundler",
     "declaration": true,
+    "newLine": "lf",
     "outDir": "dist",
     "rootDir": "src",
     "strict": true,

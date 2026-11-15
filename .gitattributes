@@ -1,0 +1,2 @@
+# Keep generated files consistent with TypeScript output on every OS.
+dist/** text eol=lf
