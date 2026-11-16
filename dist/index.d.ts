@@ -4,6 +4,7 @@ export * from './character/character-index';
 export * from './bonus/bonus-index';
 export * from './skills/skill-index';
 export * from './mob/mob.index';
+export type * from './drop';
 export * from './shared/shared.index';
 export * from './inventory/index-invetory';
 export * from './item/item-index';

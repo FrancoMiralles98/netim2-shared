@@ -1,3 +1,4 @@
+import type { MobDropPreview } from "../../drop/mob-drop-preview.type";
 import { UbicationNames } from "../../gamedata/ubication-names.type";
 import { IdMobList } from "../id-mob-list.enum";
 import { MobSummary } from "../mob-summary.type";
@@ -6,8 +7,12 @@ import { MobType } from "../mob.index";
 export type GetMobInfoRequest = {
     idMob: IdMobList;
 };
-/** Contenido de data en la respuesta HTTP, con las estadísticas recalculadas. */
-export type GetMobInfoResponse = MobType;
+/** Detalle del mob y vista previa de sus posibles drops. */
+export type GetMobInfoResponse = {
+    /** Información del mob con las estadísticas recalculadas. */
+    mob: MobType;
+    drop: MobDropPreview;
+};
 /** Query de GET /mob?ubication=city1. */
 export type GetMobsByUbicationRequest = {
     ubication: UbicationNames;
