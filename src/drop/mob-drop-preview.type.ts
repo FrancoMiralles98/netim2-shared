@@ -1,4 +1,5 @@
 import { GenericType, ItemDTO } from "../item/item-index";
+import { DropWeightType } from "./drop-weight.type";
 
 /** Rango inclusivo de valores que puede generar un drop. */
 export type DropRange<Value extends number = number> = { min: Value; max: Value };
@@ -13,6 +14,8 @@ type ItemDropPreview<Type extends GenericType> = {
     chancePerKill: number;
     /** Dirección del cambio respecto al mismo mob con los bonus de drop del personaje en cero. */
     chanceChange: 'increased' | 'decreased' | 'unchanged';
+
+    dropWeight: DropWeightType
 };
 
 /** Ítems elegibles y rangos de mejora o cantidad según su tipo. */
