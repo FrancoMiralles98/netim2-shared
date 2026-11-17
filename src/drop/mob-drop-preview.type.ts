@@ -18,8 +18,20 @@ type ItemDropPreview<Type extends GenericType> = {
     dropWeight: DropWeightType
 };
 
-/** Ítems elegibles y rangos de mejora o cantidad según su tipo. */
+/** Probabilidades porcentuales de obtener yang al derrotar al mob. */
+export type YangDropPreview = {
+    type: 'yang';
+    /** Probabilidad porcentual de obtener yang en un intento de drop. */
+    chancePerAttempt: number;
+    /** Probabilidad porcentual de obtener yang al menos una vez por baja del mob. */
+    chancePerKill: number;
+    /** Cambio respecto al mismo mob con los bonus de drop del personaje en cero. */
+    chanceChange: 'increased' | 'decreased' | 'unchanged';
+};
+
+/** Vista previa de ítems y yang que puede otorgar el mob. */
 export type MobDropPreview = (
     | (ItemDropPreview<'equip'> & { upgradeLvRange: DropRange<Extract<ItemDTO, { type: 'equip' }>['upgradeLv']> })
     | (ItemDropPreview<'utility'> & { quantityRange: DropRange })
+    | YangDropPreview
 )[];

@@ -66,6 +66,8 @@ export interface MobType {
     lv: number;
     ubication: UbicationNames;
     dificultad: MobDifficulty;
+    /** Cantidad máxima de unidades de este mob que se pueden enfrentar en un mismo combate. */
+    maxQuantitySpawn: number;
     spawnConfig: SpawnConfig;
     idMob: IdMobList;
     yang: {
