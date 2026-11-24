@@ -43,3 +43,4 @@ __exportStar(require("./api/character-skill.types"), exports);
 __exportStar(require("./api/select-character-speciality.types"), exports);
 __exportStar(require("./api/skill-upgrade-preview.types"), exports);
 __exportStar(require("./api/upgrade-character-skill.types"), exports);
+__exportStar(require("./api/claim-character-history-rewards-response.type"), exports);
