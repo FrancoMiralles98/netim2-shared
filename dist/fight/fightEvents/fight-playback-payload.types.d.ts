@@ -1,4 +1,6 @@
-import { FightEvent, FightResult } from "../fight.index";
+import type { FightEvent } from './fight-event.types';
+import type { FightResult } from '../fight/fight.type';
+import type { CombatAttackPlayback } from '../combat-hit.types';
 export interface FightPlaybackPayload {
     fightId: string;
     turns: FightPlaybackTurn[];
@@ -9,6 +11,8 @@ export interface FightPlaybackTurn {
     fighterTurns: FighterTurnPlayback[];
 }
 export interface FighterTurnPlayback {
+    /** Resultado completo de básicos o habilidades de daño; no aparece en otras acciones. */
+    attack?: CombatAttackPlayback;
     fighterId: string;
     /**
      * Target principal de la acción.

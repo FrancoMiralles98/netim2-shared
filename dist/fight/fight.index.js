@@ -39,4 +39,3 @@ __exportStar(require("./statusEffects/status-effect.types"), exports);
 __exportStar(require("./fightEvents/fight-playback-payload.types"), exports);
 __exportStar(require("./fighter/fighter.summary.types"), exports);
 __exportStar(require("./api/fightResponse"), exports);
-//Ya en index.ts

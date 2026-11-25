@@ -23,3 +23,4 @@ export * from './statusEffects/status-effect.types';
 export * from './fightEvents/fight-playback-payload.types';
 export * from './fighter/fighter.summary.types';
 export * from './api/fightResponse';
+export type * from './combat-hit.types';

@@ -24,3 +24,4 @@ export * from './fightEvents/fight-playback-payload.types'
 export * from './fighter/fighter.summary.types'
 export * from './api/fightResponse'
 //Ya en index.ts
+export type * from './combat-hit.types'
