@@ -11,3 +11,4 @@ export * from './item/item-index';
 export * from './fight/fight.index';
 export * from './missions';
 export type * from './historial/historial.index';
+export type * from './npc/npc.index';
