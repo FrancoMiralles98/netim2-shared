@@ -44,6 +44,8 @@ export interface ForgeAttemptModifierConfig {
     successChanceBonus?: number;
     /** Conserva el equipo, su nivel y su durabilidad si falla el intento. Por defecto, false. */
     preventDestruction?: boolean;
+    /**  Niveles que pierde respecto al upgrade actual, sin bajar de + 0. Por defecto, 0. */
+    upgradeLvLossOnProtectedFailure?: number;
     /** Mejoras de destino permitidas; si se omite, admite +1 a +9. */
     allowedTargetUpgradeLvs?: readonly ForgeTargetUpgradeLv[];
     /** Equipos de catálogo compatibles; si se omite, no restringe por idItem. */

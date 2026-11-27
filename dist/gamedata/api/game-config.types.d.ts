@@ -3,6 +3,8 @@ import type { CharacterPersistence } from "../../character/character-persistence
 import type { CharacterSpeciality } from "../../character/character-stats.type";
 import { ActiveStatusEffectId, StatusEffectConfig } from "../../fight/fight.index";
 import type { IdItemList } from "../../item/iditems/id-item-list.type";
+import type { ItemDTO } from "../../item/item-dto";
+import type { ForgeAttemptModifierConfig } from "../../npc/herrero.types";
 import type { UNIQUE_ID_SKILLS } from "../../skills/unique-id-skill.enum";
 import type { ZoneNames } from "../zone-names.type";
 /** Configuración pública del juego enviada por el backend al cliente. */
@@ -39,6 +41,15 @@ export type GameConfigResponse = {
     zonas: {
         [Name in ZoneNames]: ZoneConfig<Name>;
     };
+    herrero: {
+        /** Consumibles de mejora con sus datos completos y efectos sobre el intento. */
+        modifiers: ForgeModifierItemConfig[];
+    };
+};
+/** Ítem de catálogo y reglas que aplica al utilizarlo en una mejora del herrero. */
+export type ForgeModifierItemConfig = {
+    item: ItemDTO;
+    config: ForgeAttemptModifierConfig;
 };
 /** Niveles, ítems y requisitos de desbloqueo de una zona. */
 export type ZoneConfig<Name extends ZoneNames = ZoneNames> = {
