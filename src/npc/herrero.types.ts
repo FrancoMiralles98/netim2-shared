@@ -1,4 +1,6 @@
+import { CharacterPersistence } from "../character/character-persistence.type";
 import { InventoryItem } from "../inventory/inventory-item.type";
+import { InventoryChangeResult } from "../inventory/item-to-update.types";
 import { EquipType, IdItemList, ItemDTO, UpgradeLv } from "../item/item-index";
 
 /** Identificadores de instancias del inventario; no son IDs del catálogo. */
@@ -71,4 +73,39 @@ export interface ForgeUpgradeConfig {
     /** Porcentaje entre 0 y 100. */
     successChance: number;
     materials: ForgeMaterialRequirement[];
+}
+
+
+
+
+/** Contratos auxiliares de ejecución para incorporar posteriormente a netim2-shared. */
+export interface UpgradeForgeItemRequest {
+    /** ID de instancia del equipo en el inventario. */
+    itemId: string;
+    /** ID de catálogo del consumible elegido; omitir para mejorar sin bonificador. */
+    modifierIdItem?: IdItemList;
+}
+
+export type ForgeUpgradeOutcome = 'success' | 'destroyed' | 'durability_loss' | 'protected_failure' | 'downgraded';
+
+export interface UpgradeForgeItemResponse {
+    outcome: ForgeUpgradeOutcome;
+    /** Instancia final completa, o null cuando se destruyó. */
+    item: Extract<InventoryItem, { type: 'equip' }> | null;
+    /** Cantidades finales de los recursos consumidos y eliminaciones, incluido el equipo destruido. */
+    updatedItems: InventoryChangeResult[];
+    yang: number;
+    /** Conserva el bonificador si admite el próximo destino, aunque se haya consumido su última unidad. */
+    nextPreview: PreviewForgeUpgradeWithFailureResponse | null;
+}
+
+export interface ForgeUpgradeActionResult {
+    changes: Pick<CharacterPersistence, 'inventario' | 'yang'>;
+    response: UpgradeForgeItemResponse;
+}
+
+
+export interface PreviewForgeUpgradeWithFailureResponse extends PreviewForgeUpgradeResponse {
+    /** Nivel resultante si ocurre un fallo protegido; no modifica la instancia real. */
+    upgradeLvAfterProtectedFailure: ForgeUpgradeLv;
 }
