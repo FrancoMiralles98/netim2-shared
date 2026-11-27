@@ -42,6 +42,11 @@ export interface ForgeAttemptModifierConfig {
     quantity: number;
     /** Aumento porcentual relativo: 40 sobre una chance base de 50 % da 70 %. Por defecto, 0. */
     successChanceBonus?: number;
+    /** Multiplicadores del costo de mejora: 1 conserva el costo, 0.5 lo reduce a la mitad. Por defecto, ambos son 1. */
+    resourceMultiplier?: {
+        yang: number;
+        materials: number;
+    };
     /** Conserva el equipo, su nivel y su durabilidad si falla el intento. Por defecto, false. */
     preventDestruction?: boolean;
     /**  Niveles que pierde respecto al upgrade actual, sin bajar de + 0. Por defecto, 0. */
