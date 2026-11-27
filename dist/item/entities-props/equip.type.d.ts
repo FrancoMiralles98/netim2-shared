@@ -61,6 +61,12 @@ export interface EquipType extends ItemBaseType {
     bonus6_7: BonusInItem[];
     corruptExplicitBonus: BonusInItem[];
     corruptImplicitBonus: BonusInItem[];
+    forge: EquipmentForgeState;
 }
 export type TypeWeapon = 'flecha' | 'daga' | 'espada' | 'dos_manos' | 'campana' | 'fan';
 export type subTypeEquip = 'arma' | 'armadura' | 'casco' | 'brazalete' | 'collar' | 'pendiente' | 'botas' | 'escudo';
+/** Estado persistente de herrería. Contrato auxiliar para trasladar a netim2-shared. */
+export interface EquipmentForgeState {
+    /** Entre 0 y 3; un fallo protegido conserva este valor. */
+    durability: number;
+}
